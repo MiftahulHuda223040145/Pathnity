@@ -19,21 +19,25 @@
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 ml-10 place-items-center h-auto max-w-full">  
                 <div class="p-4">  
                     <img src="https://via.placeholder.com/1000x800" alt="Gambar 1" class="mb-2">  
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
                     <p>Lorem ipsum lorem lorem.</p>  
                     <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
                 </div>  
                 <div class="p-4">  
-                    <img src="https://via.placeholder.com/1000x800" alt="Gambar 2" class="mb-2">  
+                    <img src="https://via.placeholder.com/1000x800" alt="Gambar 2" class="mb-2"> 
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
                     <p>Lorem ipsum lorem lorem.</p>  
                     <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
                 </div>  
                 <div class="p-4">  
                     <img src="https://via.placeholder.com/1000x800" alt="Gambar 3" class="mb-2">  
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
                     <p>Lorem ipsum lorem lorem.</p>  
                     <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
                 </div>  
                 <div class="p-4">  
                     <img src="https://via.placeholder.com/1000x800" alt="Gambar 4" class="mb-2">  
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
                     <p>Lorem ipsum lorem lorem.</p>  
                     <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
                 </div>  
@@ -45,7 +49,8 @@
                 <h1 class="text-4xl font-bold text-white py-4 text-left ml-10">Trending</h1>  
                     <div class="p-4 place-items-center ">  
                         <img src="https://via.placeholder.com/800x500" alt="Gambar 4" class="mb-2">  
-                        <p>Lorem ipsum lorem lorem.</p>  
+                        <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
+                        <p class="text-white">Lorem ipsum lorem lorem.</p>  
                         <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
                     </div>  
                 </div>  
@@ -55,17 +60,20 @@
         <div class="grid grid-cols-2 gap-8 mt-8 ml-10 place-items-center h-auto max-w-full">  
             <div class="p-4">  
                 <img src="https://via.placeholder.com/1000x800" alt="Gambar 2" class="mb-2">  
+                <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
                 <p>Lorem ipsum lorem lorem.</p>  
                 <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
             </div>
             <div class="cols-span-2">
                 <div class="p-4">  
                     <img src="https://via.placeholder.com/300x200" alt="Gambar 3" class="mb-2">  
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
                     <p>Lorem ipsum lorem lorem.</p>  
                     <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
                 </div>  
                 <div class="p-4">  
                     <img src="https://via.placeholder.com/300x200" alt="Gambar 4" class="mb-2">  
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
                     <p>Lorem ipsum lorem lorem.</p>  
                     <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
                 </div>  
