@@ -52,7 +52,7 @@
             </div>  
         </div> 
 
-        <div class="grid grid-cols-2 sm:grid-cols-1 gap-8 mt-8 ml-10 place-items-center h-auto max-w-full">  
+        <div class="grid grid-cols-2 gap-8 mt-8 ml-10 place-items-center h-auto max-w-full">  
             <div class="p-4">  
                 <img src="https://via.placeholder.com/1000x800" alt="Gambar 2" class="mb-2">  
                 <p>Lorem ipsum lorem lorem.</p>  
