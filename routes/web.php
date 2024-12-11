@@ -13,3 +13,7 @@ Route::get('/search', function () {
 Route::get('/login', function () {
     return view('login.login');
 });
+
+Route::get('/blog', function () {
+    return view('blog.blog');
+});
