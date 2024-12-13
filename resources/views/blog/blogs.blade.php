@@ -16,7 +16,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 ml-10 place-items-center h-auto max-w-full">  
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 place-items-center h-auto max-w-full">  
                 <div class="p-4">  
                     <img src="https://via.placeholder.com/1000x800" alt="Gambar 1" class="mb-2">  
                     <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
@@ -57,7 +57,7 @@
             </div>  
         </div> 
 
-        <div class="grid grid-cols-2 gap-8 mt-8 ml-10 place-items-center h-auto max-w-full">  
+        <div class="grid grid-cols-2 gap-8 mt-8 place-items-center mx-10 h-auto max-w-full">  
             <div class="p-4">  
                 <img src="https://via.placeholder.com/1000x800" alt="Gambar 2" class="mb-2">  
                 <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
@@ -78,6 +78,35 @@
                     <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
                 </div>  
             </div>
+        </div>  
+
+        <div class="container mx-auto py-8">
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 place-items-center h-auto max-w-full">  
+                <div class="p-4">  
+                    <img src="https://via.placeholder.com/1000x800" alt="Gambar 1" class="mb-2">  
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
+                    <p>Lorem ipsum lorem lorem.</p>  
+                    <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
+                </div>  
+                <div class="p-4">  
+                    <img src="https://via.placeholder.com/1000x800" alt="Gambar 2" class="mb-2"> 
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
+                    <p>Lorem ipsum lorem lorem.</p>  
+                    <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
+                </div>  
+                <div class="p-4">  
+                    <img src="https://via.placeholder.com/1000x800" alt="Gambar 3" class="mb-2">  
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
+                    <p>Lorem ipsum lorem lorem.</p>  
+                    <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
+                </div>  
+                <div class="p-4">  
+                    <img src="https://via.placeholder.com/1000x800" alt="Gambar 4" class="mb-2">  
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
+                    <p>Lorem ipsum lorem lorem.</p>  
+                    <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
+                </div>  
+            </div>  
         </div>  
         
     </div>  
