@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SocialiteController;
 
 Route::get('/', function () {
@@ -107,11 +108,12 @@ Route::get('/blog', function () {
 
 Route::get('/register', function () {
     return view('register');
-});
+})->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/register-organizer', function () {
     return view('register-organizer');
-});
+})->middleware('guest');
 
 Route::get('/term-condition', function () {
     return view('term-condition');

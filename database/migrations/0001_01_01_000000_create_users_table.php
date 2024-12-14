@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('gender')->nullable();
             $table->string('phone_number')->nullable();
-            $table->date('birthday')->nullable();
+            $table->date('birth_date')->nullable();
             $table->string('auth_provider')->nullable();
             $table->string('auth_provider_id')->nullable();
             $table->string('avatar')->nullable();
