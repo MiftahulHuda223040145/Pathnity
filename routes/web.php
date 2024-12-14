@@ -1,0 +1,126 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SocialiteController;
+
+Route::get('/', function () {
+    $jobs = [
+        [
+            'title' => 'Fullstack Developer',
+            'company_name' => 'PT. Pertahanan Jaya',
+            'location' => 'Jakarta, Indonesia',
+            'status' => 'Online',
+            'salary' => 20000000,
+            'logo' => 'img/defender.png',
+        ],
+        [
+            'title' => 'Pramuniaga/SPG',
+            'company_name' => 'PT. Alihkan',
+            'location' => 'Jakarta, Indonesia',
+            'status' => 'Online',
+            'salary' => 2000000,
+            'logo' => 'img/compass.png',
+        ],
+        [
+            'title' => 'Product Developer',
+            'company_name' => 'PT. Pertama',
+            'location' => 'Jakarta, Indonesia',
+            'status' => 'Online',
+            'salary' => 2000000,
+            'logo' => 'img/gas.png',
+        ],
+    ];
+
+    $volunteers = [
+        [
+            'title' => 'Volunteering Pertanian dan Kehutanan',
+            'organization' => 'Kementerian Pertanian',
+            'location' => 'Jakarta, Indonesia',
+            'date' => '02 Februari 2024',
+            'logo' => 'img/tea.png',
+        ],
+        [
+            'title' => 'Pembersihan Kali Ciliwung',
+            'organization' => 'Pandawara Group',
+            'location' => 'Jakarta, Indonesia',
+            'date' => '02 Februari 2024',
+            'logo' => 'img/clean.png',
+        ],
+        [
+            'title' => 'Humas Kuali Merah Putih',
+            'organization' => 'Bobon Group',
+            'location' => 'Jakarta, Indonesia',
+            'date' => '03 Februari 2024',
+            'logo' => 'img/cooking.png',
+        ],
+    ];
+
+    $logos = [
+        'cooking.png',
+        'defender.png',
+        'compass.png',
+        'gas.png',
+        'tea.png',
+        'clean.png',
+        'apple.png',
+        'brand-image.png',
+        'netflix.png',
+        'cooking.png',
+        'defender.png',
+        'compass.png',
+        'gas.png',
+        'tea.png',
+        'clean.png',
+        'apple.png',
+        'brand-image.png',
+        'netflix.png',
+        'cooking.png',
+        'defender.png',
+        'compass.png',
+        'gas.png',
+        'tea.png',
+        'clean.png',
+        'apple.png',
+        'brand-image.png',
+        'netflix.png',
+        'gas.png',
+        'tea.png',
+    ];
+    
+
+    return view('home', compact('jobs', 'volunteers', 'logos'));
+});
+
+
+Route::get('/search', function () {
+    return view('search');
+});
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login')->middleware('guest');
+
+Route::get('/blog', function () {
+    return view('blog');
+});
+
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::get('/register-organizer', function () {
+    return view('register-organizer');
+});
+
+Route::get('/term-condition', function () {
+    return view('term-condition');
+});
+
+Route::get('/career', function () {
+    return view('career');
+});
+
+Route::get('/redirect', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
+Route::get('/callback', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout']);
