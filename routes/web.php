@@ -101,6 +101,7 @@ Route::get('/search', function () {
 Route::get('/login', function () {
     return view('login');
 })->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/blog', function () {
     return view('blog');
