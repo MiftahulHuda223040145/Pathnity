@@ -8,20 +8,25 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialiteController extends Controller
 {
-    public function redirect() {
-        return Socialite::driver('google')->redirect();
+    public function redirect($provider) {
+        if($provider){
+            return Socialite::driver($provider)->redirect();
+        }
+        abort(404);
     }
-    public function callback(){
-        $userFromGoogle = Socialite::driver('google')->stateless()->user();
+    public function callback($provider){
+        if($provider)
+        $socialUser = Socialite::driver($provider)->user();
 
-        $userFromDb = User::where('google_id' , $userFromGoogle->getId())->first();
+        $userFromDb = User::where('auth_provider_id' , $socialUser->getId())->first();
 
         if(!$userFromDb){
             $userFromDb = new User();
-            $userFromDb->email = $userFromGoogle->getEmail();
-            $userFromDb->google_id = $userFromGoogle->getId();
-            $userFromDb->name = $userFromGoogle->getName();
-            $userFromDb->avatar = $userFromGoogle->getAvatar();
+            $userFromDb->name = $socialUser->name;
+            $userFromDb->email = $socialUser->email;
+            $userFromDb->auth_provider_id = $socialUser->id;
+            $userFromDb->auth_provider = $provider;
+            $userFromDb->avatar = $socialUser->avatar;
             
             $userFromDb->save();
             auth('web')->login($userFromDb);

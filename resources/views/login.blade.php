@@ -10,11 +10,11 @@
                 <div class="w-full md:w-1/2 p-8">
                     <h2 class="text-2xl font-semibold mb-4 text-center md:text-left">Login</h2>
                     <div class="flex flex-col md:flex-row justify-center gap-4 mb-6">
-                        <a href="{{ route('redirect') }}" class="flex items-center justify-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center">
+                        <a href="{{ route('redirect', 'google') }}" class="flex items-center justify-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center">
                             <img src="{{ asset('img/google-icon.png') }}" alt="Google" class="w-5 h-5 mr-2"> 
                             Google
                         </a>
-                        <a href="/" class="flex items-center justify-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center">
+                        <a href="{{ route('redirect','facebook') }}" class="flex items-center justify-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center">
                             <img src="{{ asset('img/facebook-icon.png') }}" alt="Facebook" class="w-5 h-5 mr-2"> 
                             Facebook
                         </a>

@@ -121,6 +121,6 @@ Route::get('/career', function () {
     return view('career');
 });
 
-Route::get('/redirect', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
-Route::get('/callback', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
+Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
+Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);
