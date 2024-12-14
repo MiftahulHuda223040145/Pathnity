@@ -157,12 +157,12 @@
                 <h2 class="text-center  mb-5 mt-5 text-gray-600">or sign up using</h2>
                 {{-- Provider --}}
                 <div class="flex justify-center gap-4">
-                    <a href="/"
+                    <a href="{{ route('redirect','google') }}"
                         class="flex items-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center mr-10">
                         <img src="{{ asset('img/google-icon.png') }}" alt="Google" class="w-5 h-5 mr-2">
                         Google
                     </a>
-                    <a href="/"
+                    <a href="{{ route('redirect','facebook') }}"
                         class="flex items-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center">
                         <img src="{{ asset('img/facebook-icon.png') }}" alt="Google" class="w-5 h-5 mr-2">
                         Facebook
