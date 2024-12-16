@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="bg-white">
+    <div class="bg-white mt-16">
         <div class="container mx-auto py-8">
             <div class="flex justify-between items-center mb-6">
                 <div class="flex items-center space-x-4">

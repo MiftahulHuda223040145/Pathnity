@@ -1,11 +1,13 @@
 <x-layout>
-    <div class="bg-white min-h-screen">
+    <div class="bg-white min-h-screen mt-16">
         <div class="container mx-auto p-4">
             <div class="flex justify-between items-center mb-6">
                 <div class="flex items-center space-x-4">
                     <input type="text" placeholder="Search" class="border rounded-lg p-2 w-72 focus:outline-none focus:ring-2 focus:ring-purple-500">
                     <button class="bg-[#FFA629] text-black px-4 py-2 rounded-lg hover:bg-yellow-500 focus:outline-none">
-                        <i class="fas fa-search"></i>
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                        </svg>                          
                     </button>
                 </div>
                 <div class="flex space-x-2">
