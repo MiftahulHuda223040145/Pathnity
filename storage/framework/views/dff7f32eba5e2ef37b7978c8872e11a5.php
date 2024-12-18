@@ -1,11 +1,11 @@
-<?php if (isset($component)) { $__componentOriginal23a33f287873b564aaf305a1526eada4 = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal23a33f287873b564aaf305a1526eada4 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.layout','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php if (isset($component)) { $__componentOriginal1f9e5f64f242295036c059d9dc1c375c = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal1f9e5f64f242295036c059d9dc1c375c = $attributes; } ?>
+<?php $component = App\View\Components\Layout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('layout'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
-<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php $attributes = $attributes->except(\App\View\Components\Layout::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
     <div class="bg-white min-h-screen mt-16">
@@ -56,11 +56,11 @@
     </div>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
-<?php if (isset($__attributesOriginal23a33f287873b564aaf305a1526eada4)): ?>
-<?php $attributes = $__attributesOriginal23a33f287873b564aaf305a1526eada4; ?>
-<?php unset($__attributesOriginal23a33f287873b564aaf305a1526eada4); ?>
+<?php if (isset($__attributesOriginal1f9e5f64f242295036c059d9dc1c375c)): ?>
+<?php $attributes = $__attributesOriginal1f9e5f64f242295036c059d9dc1c375c; ?>
+<?php unset($__attributesOriginal1f9e5f64f242295036c059d9dc1c375c); ?>
 <?php endif; ?>
-<?php if (isset($__componentOriginal23a33f287873b564aaf305a1526eada4)): ?>
-<?php $component = $__componentOriginal23a33f287873b564aaf305a1526eada4; ?>
-<?php unset($__componentOriginal23a33f287873b564aaf305a1526eada4); ?>
+<?php if (isset($__componentOriginal1f9e5f64f242295036c059d9dc1c375c)): ?>
+<?php $component = $__componentOriginal1f9e5f64f242295036c059d9dc1c375c; ?>
+<?php unset($__componentOriginal1f9e5f64f242295036c059d9dc1c375c); ?>
 <?php endif; ?><?php /**PATH D:\Laragon\www\PathnityTechonnect\resources\views/search/search.blade.php ENDPATH**/ ?>

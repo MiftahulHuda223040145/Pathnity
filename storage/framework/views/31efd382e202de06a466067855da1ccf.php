@@ -1,7 +1,7 @@
 <nav id="navbar" class="fixed top-0 left-0 w-full <?php echo e(request()->is('search') ? 'bg-primaryDark shadow-lg' : 'bg-transparent'); ?>">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
   <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="img/logo/logo.png" class="h-8" alt="Flowbite Logo" />
+      <img src="img/logo/logo.png" class="h-8" alt="Pathnity Logo" />
       <span class="self-center text-xl font-medium whitespace-nowrap text-white">Pathnity</span>
   </a>
   <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -57,7 +57,7 @@
       </li>
 
       <li>
-        <a href="/career" class="block py-2 px-3 text-white text-sm font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#FFA629]  md:p-0 dark:text-white md:dark:hover:text-[#FFA629]  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ml-9 <?php echo e(request()->is('career') ? 'text-[#FFA629]' : 'text-white hover:text-[#FFA629]'); ?>" :active="request()->is('/career')">Career</a>
+        <a href="/careers" class="block py-2 px-3 text-white text-sm font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#FFA629]  md:p-0 dark:text-white md:dark:hover:text-[#FFA629]  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ml-9 <?php echo e(request()->is('career') ? 'text-[#FFA629]' : 'text-white hover:text-[#FFA629]'); ?>" :active="request()->is('/career')">Career</a>
       </li>
       <li>
         <a href="/blogs" class="block py-2 px-3 text-white text-sm font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#FFA629]  md:p-0 dark:text-white md:dark:hover:text-[#FFA629]  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ml-9 <?php echo e(request()->is('blog') ? 'text-[#FFA629]' : 'text-white hover:text-[#FFA629]'); ?>":active="request()->is('/blog')">Blog</a>

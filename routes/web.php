@@ -107,6 +107,18 @@ Route::get('/blogs', function () {
     return view('blog.blogs');
 });
 
+Route::get('/blog', function () {
+    return view('blog.blog');
+});
+
+Route::get('/notifications', function () {
+    return view('notification.notifications');
+});
+
+Route::get('/notification', function () {
+    return view('notification.notification');
+});
+
 Route::get('/register', function () {
     return view('register.register');
 })->middleware('guest');
@@ -120,8 +132,32 @@ Route::get('/term-condition', function () {
     return view('term.term-condition');
 });
 
+Route::get('/careers', function () {
+    return view('career.careers');
+});
+
 Route::get('/career', function () {
     return view('career.career');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard.dashboard');
+});
+
+Route::get('/dashboard/users', function () {
+    return view('dashboard.users');
+});
+
+Route::get('/dashboard/organizer', function () {
+    return view('dashboard.organizer');
+});
+
+Route::get('/dashboard/vacancies', function () {
+    return view('dashboard.vacancies');
+});
+
+Route::get('/dashboard/blogs', function () {
+    return view('dashboard.blogs');
 });
 
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
