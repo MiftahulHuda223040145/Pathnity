@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Blogcontroller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SocialiteController;
+
+
 
 Route::get('/', function () {
     $jobs = [
@@ -128,4 +130,4 @@ Route::get('/career', function () {
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);
-Route::resource('blogs', BlogController::class);
+Route::resource('blogs', Blogcontroller::class);

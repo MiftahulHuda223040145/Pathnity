@@ -10,5 +10,7 @@
         <form action="{{ route('blogs.destroy',$blog) }}" method="POST" onsubmit="return confirm('Are you sure?')">
 
         </form>
+    </form>
         
     @endforeach
+    </x-layout>
