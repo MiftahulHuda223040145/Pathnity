@@ -18,7 +18,7 @@
                     <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
                     <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">Judul</h1>
                     <p>dfsgsdsddfgsdfdg</p>
-                 </div>
+                </div>
         </div>
     </article>
     </div>

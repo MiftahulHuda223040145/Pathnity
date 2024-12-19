@@ -160,6 +160,10 @@ Route::get('/dashboard/blogs', function () {
     return view('dashboard.blogs');
 });
 
+Route::get('/about', function () {
+    return view('about.about');
+});
+
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);

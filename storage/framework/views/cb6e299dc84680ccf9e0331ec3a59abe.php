@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
-<body class=" h-screen flex flex-col">
+<body class=" h-screen flex flex-col bg-[#F7F7F7]">
     <?php if (isset($component)) { $__componentOriginalb9eddf53444261b5c229e9d8b9f1298e = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalb9eddf53444261b5c229e9d8b9f1298e = $attributes; } ?>
 <?php $component = App\View\Components\Navbar::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
@@ -28,7 +28,7 @@
 <?php $component = $__componentOriginalb9eddf53444261b5c229e9d8b9f1298e; ?>
 <?php unset($__componentOriginalb9eddf53444261b5c229e9d8b9f1298e); ?>
 <?php endif; ?>
-    <main class="bg-[#F7F7F7]">
+    <main>
         <?php echo e($slot); ?>
 
     </main>
