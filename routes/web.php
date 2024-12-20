@@ -111,12 +111,32 @@ Route::get('/register-organizer', function () {
     return view('register-organizer');
 });
 
+Route::get('/term-condition', function () {
+    return view('term-condition');
+});
 
 Route::get('/career', function () {
     return view('career');
 });
 
+Route::get('/setting', function () {
+    return view('setting');
+});
+
+Route::get('/edit-setting', function () {
+    return view('edit-setting');
+});
 
 Route::get('/dashboard-admin', function () {
     return view('dashboard-admin');
 });
+
+
+Route::get('/change-password', function () {
+    return view('change-password');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+

@@ -16,6 +16,9 @@
     <x-footer></x-footer>
 
     <script src="{{ asset('js/navbar.js') }}"></script>
+    <script src="{{ asset('js/setting.js') }}"></script>
+    <script src="{{ asset('js/profile-picture.js') }}"></script>
+    <script src="{{ asset('js/upload-modal.js') }}" defer></script>
 
     
 
