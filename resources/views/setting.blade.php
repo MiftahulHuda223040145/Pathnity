@@ -1,12 +1,35 @@
 <x-layout>
 
+    @if (session()->has('success'))
+        <div id="notification"
+            class="relative isolate flex items-center gap-x-6 overflow-hidden px-6 py-2.5 sm:px-3.5 sm:before:flex-1 bg-green-700 mt-20 w-full max-w-screen-lg mx-auto">
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <p class="text-sm/6 text-white">
+                    <strong class="font-semibold">{{ session('success') }}</strong>
+                </p>
+            </div>
+            <div class="flex flex-1 justify-end">
+                <button type="button" onclick="document.getElementById('notification').remove();"
+                    class="-m-3 p-3 focus-visible:outline-offset-[-4px]">
+                    <svg class="size-5 text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                        data-slot="icon">
+                        <path
+                            d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+                    </svg>
+                </button>
+
+            </div>
+        </div>
+    @endif
+
     <div class="flex container mx-auto mt-20">
         <div class="w-1/4 bg-white p-6 shadow-md">
             <h2 class="text-2xl font-bold mb-4">Settings</h2>
             <ul class="space-y-4">
                 <li><a href="#" class="text-gray-700 hover:text-blue-500 font-semibold">Account</a></li>
                 <li><a href="#" class="text-gray-700 hover:text-blue-500 font-semibold">Privacy</a></li>
-                <li><a href="/change-password" class="text-gray-700 hover:text-blue-500 font-semibold">Change Password</a>
+                <li><a href="/change-password" class="text-gray-700 hover:text-blue-500 font-semibold">Change
+                        Password</a>
                 </li>
                 <li>
                     <form action="/logout" method="POST">
@@ -59,4 +82,6 @@
             </div>
         </div>
     </div>
+
+    
 </x-layout>

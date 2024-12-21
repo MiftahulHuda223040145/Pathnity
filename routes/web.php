@@ -121,8 +121,6 @@ Route::middleware('auth:web')->group(function () {
     Route::put('/register-complete', [UserController::class, 'update'])->name('register.complete');
 });
 
-
-
 Route::get('/register-organizer', function () {
     return view('register-organizer');
 })->middleware('guest');
@@ -139,8 +137,10 @@ Route::get('/setting', function () {
     return view('setting');
 });
 Route::get('/edit-setting', function () {
-    return view('edit_setting');
+    return view('edit-setting');
 });
+Route::put('/edit-setting', [UserController::class, 'updateProfile'])->name('user.updateProfile');
+
 Route::get('/change-password', function () {
     return view('change-password');
 });
