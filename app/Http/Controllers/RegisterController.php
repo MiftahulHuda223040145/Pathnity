@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validatedData = $request->validate([
             'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
+            'last_name' => 'nullable|string|max:255',
             'gender' => 'required|in:male,female',
             'phone_number' => 'required|digits_between:10,15',
             'birth_date' => 'required|date|before:today',
@@ -21,7 +22,7 @@ class RegisterController extends Controller
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);
-        
+
         return redirect('/login')->with('success', 'Registration successfull! Please Login');
     }
 }

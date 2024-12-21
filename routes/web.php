@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SocialiteController;
@@ -88,7 +90,7 @@ Route::get('/', function () {
         'gas.png',
         'tea.png',
     ];
-    
+
 
     return view('home', compact('jobs', 'volunteers', 'logos'));
 });
@@ -110,7 +112,16 @@ Route::get('/blog', function () {
 Route::get('/register', function () {
     return view('register');
 })->middleware('guest');
+
 Route::post('/register', [RegisterController::class, 'store']);
+
+// routes/web.php
+Route::middleware('auth:web')->group(function () {
+    Route::get('/register-complete', [UserController::class, 'showForm'])->name('user.showForm');
+    Route::put('/register-complete', [UserController::class, 'update'])->name('register.complete');
+});
+
+
 
 Route::get('/register-organizer', function () {
     return view('register-organizer');
@@ -122,6 +133,16 @@ Route::get('/term-condition', function () {
 
 Route::get('/career', function () {
     return view('career');
+});
+
+Route::get('/setting', function () {
+    return view('setting');
+});
+Route::get('/edit-setting', function () {
+    return view('edit_setting');
+});
+Route::get('/change-password', function () {
+    return view('change-password');
 });
 
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');

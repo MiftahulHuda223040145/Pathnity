@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->string('phone_number')->nullable();
             $table->date('birth_date')->nullable();
+            $table->String('address')->nullable();
             $table->string('auth_provider')->nullable();
             $table->string('auth_provider_id')->nullable();
             $table->string('avatar')->nullable();

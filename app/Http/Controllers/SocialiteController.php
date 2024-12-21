@@ -8,20 +8,22 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialiteController extends Controller
 {
-    public function redirect($provider) {
+    public function redirect($provider)
+    {
         if ($provider) {
             return Socialite::driver($provider)->redirect();
         }
         abort(404);
     }
 
-    public function callback($provider) {
+    public function callback($provider)
+    {
         if ($provider) {
             $socialUser = Socialite::driver($provider)->user();
 
-            $fullName = $socialUser->name; 
-            $nameParts = explode(' ', $fullName, 2); 
-            $firstName = $nameParts[0] ?? ''; 
+            $fullName = $socialUser->getName();
+            $nameParts = explode(' ', $fullName, 2);
+            $firstName = $nameParts[0] ?? '';
             $lastName = $nameParts[1] ?? '';
 
             $userFromDb = User::where('auth_provider_id', $socialUser->getId())->first();
@@ -30,21 +32,24 @@ class SocialiteController extends Controller
                 $userFromDb = new User();
                 $userFromDb->first_name = $firstName;
                 $userFromDb->last_name = $lastName;
-                $userFromDb->email = $socialUser->email;
-                $userFromDb->auth_provider_id = $socialUser->id;
+                $userFromDb->email = $socialUser->getEmail();
+                $userFromDb->auth_provider_id = $socialUser->getId();
                 $userFromDb->auth_provider = $provider;
-                $userFromDb->avatar = $socialUser->avatar;
-
+                $userFromDb->avatar = $socialUser->getAvatar();
                 $userFromDb->save();
+
                 auth('web')->login($userFromDb);
                 session()->regenerate();
-                return redirect('/');
+
+                return redirect('/register-complete')->with('user', $userFromDb);
             }
 
             auth('web')->login($userFromDb);
             session()->regenerate();
+
             return redirect('/');
         }
+
         abort(404);
     }
 }

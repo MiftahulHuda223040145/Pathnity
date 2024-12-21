@@ -95,6 +95,14 @@
                     </div>
                 </div>
 
+                <div class="mb-6">
+                    <label for="address"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
+                    <input type="text" id="adress"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Your Address" required />
+                </div>
+
                 {{-- Email --}}
                 <div class="mb-6">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
@@ -139,7 +147,8 @@
                             class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
                             required />
                     </div>
-                    <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with
+                    <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree
+                        with
                         the <a href="/term-condition" class="text-[#241365] hover:underline dark:text-blue-500">terms
                             and
                             conditions</a>.</label>
@@ -157,12 +166,12 @@
                 <h2 class="text-center  mb-5 mt-5 text-gray-600">or sign up using</h2>
                 {{-- Provider --}}
                 <div class="flex justify-center gap-4">
-                    <a href="{{ route('redirect','google') }}"
+                    <a href="{{ route('redirect', 'google') }}"
                         class="flex items-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center mr-10">
                         <img src="{{ asset('img/google-icon.png') }}" alt="Google" class="w-5 h-5 mr-2">
                         Google
                     </a>
-                    <a href="{{ route('redirect','facebook') }}"
+                    <a href="{{ route('redirect', 'facebook') }}"
                         class="flex items-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center">
                         <img src="{{ asset('img/facebook-icon.png') }}" alt="Google" class="w-5 h-5 mr-2">
                         Facebook
