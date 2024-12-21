@@ -16,6 +16,7 @@ class RegisterController extends Controller
             'gender' => 'required|in:male,female',
             'phone_number' => 'required|digits_between:10,15',
             'birth_date' => 'required|date|before:today',
+            'address' => 'required|string|max:255',
             'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:5|max:255|confirmed'
         ]);

@@ -95,91 +95,91 @@
                     </div>
                 </div>
 
-                <div class="mb-6">
+                <<div class="mb-6">
                     <label for="address"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
-                    <input type="text" id="adress"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Your Address" required />
-                </div>
-
-                {{-- Email --}}
-                <div class="mb-6">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
-                        address</label>
-                    <input type="email" id="email" name="email" placeholder="sugeng@gmail.com"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
-                        @error('email') invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 @enderror"
-                        value="{{ old('email') }}" required />
-                    @error('email')
-                        <p class="mt-2 text-sm text-pink-600">{{ $message }}</p>
+                    <input type="text" name="address" id="address" value="{{ old('address') }}" required
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:text-white" />
+                    @error('address')
+                        <p class="mt-2 text-pink-600 text-sm">{{ $message }}</p>
                     @enderror
-                </div>
-                {{-- Password --}}
-                <div class="mb-6">
-                    <label for="password"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                    <input type="password" id="password" name="password" placeholder="•••••••••"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
-                        @error('password') invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 @enderror""
-                        required />
-                    @error('password')
-                        <p class="mt-2 text-sm text-pink-600">{{ $message }}</p>
-                    @enderror
-                </div>
-                {{-- Confirm Password --}}
-                <div class="mb-6">
-                    <label for="password_confirmation"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-                    <input type="password" id="password_confirmation" name="password_confirmation"
-                        placeholder="•••••••••"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
-                        @error('password_confirmation') invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 @enderror""
-                        required />
-                    @error('password_confirmation')
-                        <p class="mt-2 text-sm text-pink-600">{{ $message }}</p>
-                    @enderror
-                </div>
-                {{-- Checkbox --}}
-                <div class="flex items-start mb-6">
-                    <div class="flex items-center h-5">
-                        <input id="remember" type="checkbox"
-                            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-                            required />
-                    </div>
-                    <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree
-                        with
-                        the <a href="/term-condition" class="text-[#241365] hover:underline dark:text-blue-500">terms
-                            and
-                            conditions</a>.</label>
-                </div>
-                {{-- Submit --}}
-                <button type="submit"
-                    class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full ssm:w-[400px] px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-3 ">
-                    Submit
-                </button>
-
-                <p class="text-center">Already have an account?<a href="/login"
-                        class="text-orange-500 text-sm font-medium hover:text-orange-300 ml-1">
-                        Sign In
-                    </a></p>
-                <h2 class="text-center  mb-5 mt-5 text-gray-600">or sign up using</h2>
-                {{-- Provider --}}
-                <div class="flex justify-center gap-4">
-                    <a href="{{ route('redirect', 'google') }}"
-                        class="flex items-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center mr-10">
-                        <img src="{{ asset('img/google-icon.png') }}" alt="Google" class="w-5 h-5 mr-2">
-                        Google
-                    </a>
-                    <a href="{{ route('redirect', 'facebook') }}"
-                        class="flex items-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center">
-                        <img src="{{ asset('img/facebook-icon.png') }}" alt="Google" class="w-5 h-5 mr-2">
-                        Facebook
-                    </a>
-                </div>
-
-
-            </form>
         </div>
+
+        {{-- Email --}}
+        <div class="mb-6">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
+                address</label>
+            <input type="email" id="email" name="email" placeholder="sugeng@gmail.com"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+                        @error('email') invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 @enderror"
+                value="{{ old('email') }}" required />
+            @error('email')
+                <p class="mt-2 text-sm text-pink-600">{{ $message }}</p>
+            @enderror
+        </div>
+        {{-- Password --}}
+        <div class="mb-6">
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+            <input type="password" id="password" name="password" placeholder="•••••••••"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+                        @error('password') invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 @enderror""
+                required />
+            @error('password')
+                <p class="mt-2 text-sm text-pink-600">{{ $message }}</p>
+            @enderror
+        </div>
+        {{-- Confirm Password --}}
+        <div class="mb-6">
+            <label for="password_confirmation"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
+            <input type="password" id="password_confirmation" name="password_confirmation" placeholder="•••••••••"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+                        @error('password_confirmation') invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 @enderror""
+                required />
+            @error('password_confirmation')
+                <p class="mt-2 text-sm text-pink-600">{{ $message }}</p>
+            @enderror
+        </div>
+        {{-- Checkbox --}}
+        <div class="flex items-start mb-6">
+            <div class="flex items-center h-5">
+                <input id="remember" type="checkbox"
+                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                    required />
+            </div>
+            <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree
+                with
+                the <a href="/term-condition" class="text-[#241365] hover:underline dark:text-blue-500">terms
+                    and
+                    conditions</a>.</label>
+        </div>
+        {{-- Submit --}}
+        <button type="submit"
+            class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full ssm:w-[400px] px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-3 ">
+            Submit
+        </button>
+
+        <p class="text-center">Already have an account?<a href="/login"
+                class="text-orange-500 text-sm font-medium hover:text-orange-300 ml-1">
+                Sign In
+            </a></p>
+        <h2 class="text-center  mb-5 mt-5 text-gray-600">or sign up using</h2>
+        {{-- Provider --}}
+        <div class="flex justify-center gap-4">
+            <a href="{{ route('redirect', 'google') }}"
+                class="flex items-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center mr-10">
+                <img src="{{ asset('img/google-icon.png') }}" alt="Google" class="w-5 h-5 mr-2">
+                Google
+            </a>
+            <a href="{{ route('redirect', 'facebook') }}"
+                class="flex items-center py-2 px-4 rounded text-black border border-transparent hover:border-gray-300 hover:bg-gray-100 text-center">
+                <img src="{{ asset('img/facebook-icon.png') }}" alt="Google" class="w-5 h-5 mr-2">
+                Facebook
+            </a>
+        </div>
+
+
+        </form>
+    </div>
     </div>
 </x-layout>
