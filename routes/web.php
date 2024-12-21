@@ -98,6 +98,10 @@ Route::get('/search', function () {
     return view('search.search');
 });
 
+Route::get('/search/vacancies', function () {
+    return view('search.search-vacancies');
+});
+
 Route::get('/login', function () {
     return view('login.login');
 })->name('login')->middleware('guest');
