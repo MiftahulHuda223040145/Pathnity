@@ -5,8 +5,7 @@ use App\Http\Controllers\Blogcontroller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SocialiteController;
-
-
+use App\Http\Controllers\VancaviesController;
 
 Route::get('/', function () {
     $jobs = [
@@ -131,3 +130,4 @@ Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->na
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::resource('blogs', Blogcontroller::class);
+Route::resource('vancavies', VancaviesController::class);
