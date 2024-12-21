@@ -168,6 +168,14 @@ Route::get('/about', function () {
     return view('about.about');
 });
 
+Route::get('/apply', function () {
+    return view('apply.form-apply');
+});
+
+Route::get('/progress', function () {
+    return view('apply.progress-apply');
+});
+
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);

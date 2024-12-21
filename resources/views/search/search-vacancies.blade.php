@@ -2,7 +2,7 @@
     <div class="bg-white">
         <div class="container mx-auto mt-20">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="container mx-auto mt-5 h-[34rem] overflow-y-auto">
+                <div class="container mx-auto mt-5 h-[34rem] overflow-y-auto pr-5">
                     <div class="grid grid-cols-1 gap-4">
                         @for ($i = 0; $i < 10; $i++)
                         <div class="bg-white rounded-lg shadow-md p-4 border border-gray-300 h-48 w-full flex items-center gap-4">
@@ -55,7 +55,13 @@
                             </div>
                         </div>
                     </div>
+                    <div class="p-4 mb-4 text-center font-bold">
+                        <a href="#" class="bg-[#FFA629] text-black px-4 py-2 rounded-lg text-sm hover:bg-yellow-500 focus:outline-none">
+                            Apply
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
