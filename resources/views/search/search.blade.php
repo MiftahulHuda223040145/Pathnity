@@ -68,8 +68,11 @@
                                     <img src="" alt="Company Logo" class="h-12 w-12 mb-14">
                                     <div>
                                         <h3 class="text-lg font-semibold"></h3>
-                                        <p class="text-gray-600"></p>
-                                        <p class="text-gray-600"></p>
+                                        <p class="text-gray-600">Title</p>
+                                        <p class="text-gray-600">Organization</p>
+                                        <p class="text-gray-600">Location</p>
+                                        <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
+                                        <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
                                         <p class="text-gray-600">Status: </p>
                                         <p class="text-gray-600">Gaji: Rp</p>
                                     </div>
@@ -82,8 +85,11 @@
                                 <img src="" alt="Company Logo" class="h-12 w-12 mb-14">
                                 <div>
                                     <h3 class="text-lg font-semibold"></h3>
-                                    <p class="text-gray-600"></p>
-                                    <p class="text-gray-600"></p>
+                                    <p class="text-gray-600">Title</p>
+                                    <p class="text-gray-600">Organization</p>
+                                    <p class="text-gray-600">Location</p>
+                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
+                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
                                     <p class="text-gray-600">Tanggal:</p>
                                 </div>
                             </div>

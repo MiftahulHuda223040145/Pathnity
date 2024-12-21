@@ -140,6 +140,10 @@ Route::get('/careers', function () {
     return view('career.careers');
 });
 
+Route::get('/careers-2', function () {
+    return view('career.careers-2');
+});
+
 Route::get('/career', function () {
     return view('career.career');
 });

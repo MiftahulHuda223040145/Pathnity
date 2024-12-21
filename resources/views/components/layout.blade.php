@@ -12,6 +12,9 @@
     <x-navbar></x-navbar>
     <main>
         {{$slot}}
+
+        {{-- if user not login --}}
+        {{-- <x-not-login></x-not-login> --}}
     </main>
     <x-footer></x-footer>
     <script src="{{ asset('js/navbar.js') }}"></script>

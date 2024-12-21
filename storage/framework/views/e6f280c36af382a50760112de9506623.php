@@ -44,7 +44,8 @@
                                     <h3 class="text-lg font-semibold"><?php echo e($job['title']); ?></h3>
                                     <p class="text-gray-600"><?php echo e($job['company_name']); ?></p>
                                     <p class="text-gray-600"><?php echo e($job['location']); ?></p>
-                                    <p class="text-gray-600">Status: <?php echo e($job['status']); ?></p>
+                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded"><?php echo e($job['status']); ?></span>
+                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
                                     <p class="text-gray-600">Gaji: Rp <?php echo e(number_format($job['salary'], 0, ',', '.')); ?></p>
                                 </div>
                             </div>
@@ -66,6 +67,8 @@
                                 <h3 class="text-lg font-semibold"><?php echo e($volunteer['title']); ?></h3>
                                 <p class="text-gray-600"><?php echo e($volunteer['organization'] ?: 'Tidak disebutkan'); ?></p>
                                 <p class="text-gray-600"><?php echo e($volunteer['location']); ?></p>
+                                <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
+                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
                                 <p class="text-gray-600">Tanggal: <?php echo e($volunteer['date']); ?></p>
                             </div>
                         </div>

@@ -1,17 +1,12 @@
 <x-layout>
-    {{-- <div class="flex items-center justify-center h-screen">
-        <div class="bg-white rounded-lg shadow-md p-8 border border-gray-300 w-1/2 h-1/2 flex flex-col items-center justify-center">
-            <p class="text-xl font-semibold mb-4">You Must Login!</p>
-            <button class="bg-orange-500 text-white py-2 px-6 rounded"><a href="/login">Login</a></button>
-        </div>
-    </div> --}}
+
 
     <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">My Career</h1>
     <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
         <div class="container mx-auto my-5">
             <div class="grid grid-cols-4 gap-4">                
-                <div class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full flex items-center gap-4">
-                    <div class="place-items-center">
+                <div class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full items-center gap-4">
+                    <div class="place-items-center text-center">
                         <img src="" alt="Company Logo" class="h-12 w-12 mb-14">
                         <h3 class="text-lg font-semibold">Fullstack Developer</h3>
                         <p class="text-gray-600">PT.Pertamina</p>
@@ -21,6 +16,12 @@
                     </div>
                 </div>
             </div>
+
+            {{-- If Career is empty --}}
+            {{-- <div class="text-center place-items-center">
+                <h2 class="text-2xl font-bold mb-20">Find Job or Volunteer</h2>
+                <button href="/search" class="bg-orange-500 text-white py-2 px-6 rounded text-center">Find
+            </div> --}}
         </div>
         <div class="text-center">
             <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 mt-5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
@@ -32,11 +33,11 @@
     </div>
 
     {{-- For Organizer --}}
-    <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">Progress</h1>
+    <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">Waiting</h1>
     <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
         <div class="container mx-auto my-5">
             <div class="grid grid-cols-4 gap-4">                
-                <div class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full flex items-center gap-4">
+                <div class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full items-center gap-4">
                     <div class="place-items-center">
                         <img src="" alt="Company Logo" class="h-12 w-12 mb-14">
                         <h3 class="text-lg font-semibold">Fullstack Developer</h3>
@@ -60,7 +61,7 @@
     <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
         <div class="container mx-auto my-5">
             <div class="grid grid-cols-4 gap-4">                
-                <div class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full flex items-center gap-4">
+                <div class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full items-center gap-4">
                     <div class="place-items-center">
                         <img src="" alt="Company Logo" class="h-12 w-12 mb-14">
                         <h3 class="text-lg font-semibold">Fullstack Developer</h3>

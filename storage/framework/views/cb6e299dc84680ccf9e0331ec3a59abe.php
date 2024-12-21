@@ -31,6 +31,9 @@
     <main>
         <?php echo e($slot); ?>
 
+
+        
+        
     </main>
     <?php if (isset($component)) { $__componentOriginal8a8716efb3c62a45938aca52e78e0322 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal8a8716efb3c62a45938aca52e78e0322 = $attributes; } ?>
