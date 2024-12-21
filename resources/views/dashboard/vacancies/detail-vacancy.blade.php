@@ -1,25 +1,7 @@
-<x-layout>
-    <div class="bg-white">
-        <div class="container mx-auto mt-20">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="container mx-auto mt-5 h-[34rem] overflow-y-auto pr-5">
-                    <div class="grid grid-cols-1 gap-4">
-                        @for ($i = 0; $i < 10; $i++)
-                        <div class="bg-white rounded-lg shadow-md p-4 border border-gray-300 h-48 w-full flex items-center gap-4">
-                            <img src="" alt="Company Logo" class="h-12 w-12 mb-14">
-                            <div>
-                                <h3 class="text-lg font-semibold"></h3>
-                                <p class="text-gray-600"></p>
-                                <p class="text-gray-600"></p>
-                                <p class="text-gray-600">Status: </p>
-                                <p class="text-gray-600">Gaji: Rp </p>
-                            </div>
-                        </div>
-                        @endfor
-                    </div>
-                </div>
-
-                <div class="container mx-auto h-[34rem] overflow-y-auto">
+<x-dashboard.layout>
+    <div class="p-4 sm:ml-64">
+            <div class="p-4 bg-white rounded-lg mt-14">
+                <div class="container mx-auto h-[34rem] mb-10">
                     <div class="overflow-hidden">
                         <!-- Profile Images -->
                         <div class="p-10 flex flex-col items-start">
@@ -54,15 +36,9 @@
                                 <p class="mr-2 text-black"></p>
                             </div>
                         </div>
-                        <div class="p-4 mb-4 text-center font-bold">
-                            <a href="#" class="bg-[#FFA629] text-black px-4 py-2 rounded-lg text-sm hover:bg-yellow-500 focus:outline-none">
-                                Apply
-                            </a>
-                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-</x-layout>
+</x-dashboard.layout>

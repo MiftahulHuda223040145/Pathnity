@@ -153,19 +153,36 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/dashboard/users', function () {
-    return view('dashboard.users');
+    return view('dashboard.users.users');
+});
+
+Route::get('/dashboard/create-user', function () {
+    return view('dashboard.users.create-user');
 });
 
 Route::get('/dashboard/organizer', function () {
-    return view('dashboard.organizer');
+    return view('dashboard.organizer.organizer');
 });
 
 Route::get('/dashboard/vacancies', function () {
-    return view('dashboard.vacancies');
+    return view('dashboard.vacancies.vacancies');
+});
+
+Route::get('/dashboard/detail-vacancy', function () {
+    return view('dashboard.vacancies.detail-vacancy');
+});
+
+
+Route::get('/dashboard/create-blog', function () {
+    return view('dashboard.blog.create-blog');
+});
+
+Route::get('/dashboard/detail-blog', function () {
+    return view('dashboard.blog.detail-blog');
 });
 
 Route::get('/dashboard/blogs', function () {
-    return view('dashboard.blogs');
+    return view('dashboard.blog.blogs');
 });
 
 Route::get('/about', function () {
