@@ -7,6 +7,7 @@
     @vite('resources/css/app.css', 'resources/js/app.js') 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body class=" h-screen flex flex-col">
     <x-navbar></x-navbar>
@@ -16,9 +17,10 @@
     <x-footer></x-footer>
 
     <script src="{{ asset('js/navbar.js') }}"></script>
-    <script src="{{ asset('js/setting.js') }}"></script>
+    <script src="{{ asset('js/settings.js') }}"></script>
     <script src="{{ asset('js/profile-picture.js') }}"></script>
     <script src="{{ asset('js/upload-modal.js') }}" defer></script>
+    <script src="{{ asset('js/toggle-password.js') }}"></script>
 
     
 
