@@ -9,7 +9,7 @@
         <input type="text" name="title" id="title" value="{{ $vancavy->title }}" required>
         <br><br>
 
-        <label for="contont">Contont:</label>
+        <label for="content">Content:</label>
         <textarea name="content" id="content" rows="5" required>{{ $vancavy->content }}</textarea>
         <br><br>
 
