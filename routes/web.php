@@ -140,3 +140,7 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
+Route::get('/seemore-experience', function () {
+    return view('seemore-experience');
+});
+

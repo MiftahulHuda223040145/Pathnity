@@ -26,21 +26,20 @@
                     <div>
                         <h3 class="font-semibold">Software Engineer</h3>
                         <p class="text-sm text-gray-500">Tech Company | 2020-01-01 - 2023-01-01</p>
-                        <button class="bg-orange-500 text-white px-4 py-2 text-sm rounded mt-2">See More</button>
                     </div>
                 </div>
                 <!-- Second Experience Item -->
                 <div class="flex items-center space-x-4">
-                    <div class="w-16 h-16 rounded-full overflow-hidden">
+                    <div class="w-16 h-16 rounded-full overflow-hidden mb-6">
                         <img src="img/medsos/ig.png" alt="Company Image" class="w-full h-full object-cover">
                     </div>
                     <div>
-                        <h3 class="font-semibold">Senior Developer</h3>
-                        <p class="text-sm text-gray-500">Another Tech Company | 2018-01-01 - 2020-01-01</p>
-                        <button class="bg-orange-500 text-white px-4 py-2 text-sm rounded mt-2">See More</button>
+                        <h3 class="font-semibold ">Senior Developer</h3>
+                        <p class="text-sm text-gray-500 mb-5">Another Tech Company | 2018-01-01 - 2020-01-01</p>
                     </div>
                 </div>
             </div>
+            <a href="/seemore-experience" class="bg-orange-500 text-white px-4 py-2 text-sm rounded mt-2">See More</a>
         </div>
 
         <!-- Skills Section -->
@@ -49,12 +48,12 @@
             <button class="absolute top-4 right-4 text-black hover:text-gray-700" onclick="openEditForm('skills')">
                 <i class="fas fa-edit" title="Edit Skills"></i>
             </button>
-            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
                 <li>English Language</li>
                 <li>Germany Language</li>   
                 <li>Italy Language</li>
             </ul>
-            <button class="bg-orange-500 text-white px-4 py-2 text-sm rounded mt-4">See More</button>
+            <a href="/seemore-experience" class="bg-orange-500 text-white px-4 py-2 text-sm rounded mt-2">See More</a>
         </div>
         
         <!-- Education Section -->
@@ -64,15 +63,15 @@
                 <i class="fas fa-edit" title="Edit Education"></i>
             </button>
             <div class="flex items-center space-x-4">
-                <div class="w-16 h-16 rounded-full overflow-hidden">
+                <div class="w-16 h-16 rounded-full overflow-hidden mb-6">
                     <img src="img/education/unpas.png" alt="Company Image" class="w-full h-full object-cover">
                 </div>
                 <div>
-                    <h3 class="font-semibold">University of Bandung</h3>
-                    <p class="text-sm text-gray-500">Bachelor's Degree | 2016</p>
-                    <button class="bg-orange-500 text-white px-4 py-2 text-sm rounded mt-2">See More</button>
+                    <h3 class="font-semibold">University Pasundan Bandung</h3>
+                    <p class="text-sm text-gray-500 mb-5">Bachelor's Degree | 2016</p>
                 </div>
             </div>
+            <a href="/seemore-experience" class="bg-orange-500 text-white px-4 py-2 text-sm rounded mt-2">See More</a>  
         </div>
 
         <!-- Edit Form Modal -->
