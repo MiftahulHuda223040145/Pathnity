@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
-<body class=" h-screen flex flex-col">
+<body class="h-screen flex flex-col m-0 p-0">
     <x-navbar></x-navbar>
-    <main class="bg-[#F7F7F7]">
+    <main class="bg-[#F7F7F7] flex-grow pb-0 mb-0">
         {{$slot}}
     </main>
     <x-footer></x-footer>

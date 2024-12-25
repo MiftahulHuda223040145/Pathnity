@@ -79,44 +79,23 @@
     
     </div>
 
-    <div class="bg-[#241365] mt-11">
-        <div class="container mx-auto py-8">
-            <h1 class="text-4xl font-bold text-white py-4 text-left ml-10">Blog</h1>
-            <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 ml-5 place-items-center h-auto max-w-full">
-            <!-- Card 1 -->
-            <div class="p-4 bg-white rounded-lg shadow-md h-62 w-60">
-                <a href="/login" >  <img src="img/blog/career.png" alt="career" class="mb-4 rounded max-w-full">
-                <p class="font-semibold text-center">Explore Career Opportunities</p>
-                </a>
-                <p class="text-sm text-gray-400 text-center">Sugeng, 56 menit</p>
+    <div class="bg-[#241365] mt-12 py-12">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-white mb-8 text-left ml-10">Our Blog</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                @foreach([['src' => 'career.png', 'title' => 'Explore Career Opportunities'],
+                          ['src' => 'search-job.png', 'title' => 'Job Search: Tips & Tricks'],
+                          ['src' => 'career1.png', 'title' => 'Advance Your Career with Us'],
+                          ['src' => 'btc.png', 'title' => 'Bitcoin: Opportunities in Tech']] as $blog)
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <a href="/login">
+                            <img src="img/blog/{{ $blog['src'] }}" alt="{{ $blog['title'] }}" class="rounded mb-4">
+                            <p class="font-semibold text-center">{{ $blog['title'] }}</p>
+                        </a>
+                        <p class="text-sm text-gray-500 text-center mt-2">Sugeng, 56 minutes ago</p>
+                    </div>
+                @endforeach
             </div>
-        
-            <!-- Card 2 -->
-            <div class="p-4 bg-white rounded-lg shadow-md h-62 w-60">
-                <a href="/login" > <img src="img/blog/search-job.png" alt="Gambar 2" class="mb-4 rounded max-w-full">
-                <p class="font-semibold text-center">Job Search: Tips & Tricks</p>
-                </a>
-                <p class="text-sm text-gray-400 text-center">Sugeng, 56 menit</p>
-            </div>
-        
-            <!-- Card 3 -->
-            <div class="p-4 bg-white rounded-lg shadow-md h-62 w-60">
-               <a href="/login" ><img src="img/blog/career1.png" alt="Gambar 3" class="mb-4 rounded max-w-full">
-                <p class="font-semibold text-center">Advance Your Career with Us</p>
-               </a>
-                <p class="text-sm text-gray-400 text-center">Sugeng, 56 menit</p>
-            </div>
-        
-            <!-- Card 4 -->
-            <div class="p-4 bg-white rounded-lg shadow-md h-62 w-60">
-                <a href="/login" ><img src="img/blog/btc.png" alt="Gambar 4" class="mb-4 rounded max-w-full">
-                <p class="font-semibold text-center">Bitcoin: Opportunities in Tech</p>
-                </a>
-                <p class="text-sm text-gray-400 text-center">Sugeng, 56 menit</p>
-            </div>
-        </div>
-        
         </div>
     </div>
 </x-layout>

@@ -2,8 +2,9 @@
     <div class="flex flex-col min-h-screen">
         <main class="flex-grow flex justify-center items-center bg-gray-100">
             <div class="flex flex-col md:flex-row bg-white shadow-lg w-full max-w-4xl h-full md:h-auto overflow-y-auto">
-                <div class="w-full md:w-1/2 bg-purple-700 text-white p-8 flex flex-col justify-center items-center">
-                    <h1 class="text-3xl font-bold mb-6 text-center">PATHNITY</h1>
+                <div class="w-full md:w-1/2 bg-[#0A3981] text-white p-8 flex flex-col justify-center items-center">
+                    <!-- Ganti teks "PATHNITY" dengan gambar logo -->
+                    <img src="{{ asset('img/logo/logo.png') }}" alt="Logo" class="h-36  w-auto mb-6">
                     <p class="text-lg text-center">Pathnity helps you connect and get a career according to your passion</p>
                 </div>
     
@@ -37,6 +38,4 @@
             </div>
         </main>
     </div>
-    
-    
 </x-layout>

@@ -144,3 +144,10 @@ Route::get('/seemore-experience', function () {
     return view('seemore-experience');
 });
 
+Route::get('/post-carier', function () {
+    return view('post-carier');
+});
+
+Route::get('/accept-employe', function () {
+    return view('accept-employe');
+});

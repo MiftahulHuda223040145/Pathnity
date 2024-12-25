@@ -1,7 +1,9 @@
-<footer class="bg-black text-white mt-8">  
+<footer class="bg-black text-white mt-0">  
     <div class="container mx-auto py-8 flex flex-col md:flex-row justify-between items-center">  
         <div class="flex items-center mt-5">  
-            <div class="w-48 h-48 bg-gray-700 rounded-md mr-4 ml-16 flex justify-center items-center mx-auto"><img class="h-32 w-32 object-contain " src="img/logo/logo.png" alt="logo">   </div>  
+            <div class="w-48 h-48 bg-gray-700 rounded-md mr-4 ml-16 flex justify-center items-center mx-auto">
+                <img class="h-32 w-32 object-contain" src="img/logo/logo.png" alt="logo">
+            </div>  
         </div>  
         <div class="mb-20 md:mt-0">  
             <h2 class="text-lg">Contact Us :</h2>  
@@ -16,7 +18,6 @@
                     <img src="img/medsos/linkedin.png" alt="LinkedIn" class="w-6 h-6 mr-20">
                 </a>
             </div>
-            
         </div>  
     </div>  
     <div class="text-left py-4 ml-24 mb-5">  
@@ -25,4 +26,4 @@
     <div class="bg-orange-500 text-center py-4">  
         <p>Copyright Techonnect 2024</p>  
     </div>  
-</footer>  
+</footer>
