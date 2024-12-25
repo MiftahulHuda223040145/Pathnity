@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vancavies extends Model
 {
-    
+    use HasFactory;
+    protected $fillable = ['title', 'content',  'image'];
 }

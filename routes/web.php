@@ -130,4 +130,4 @@ Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->na
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::resource('blogs', Blogcontroller::class);
-Route::resource('vancavies', VancaviesController::class);
+Route::resource('vancavies',VancaviesController::class);
