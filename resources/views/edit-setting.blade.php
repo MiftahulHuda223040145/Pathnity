@@ -43,6 +43,11 @@
                     <input type="text" value="Pa Sugeng"
                         class="w-full border-gray-300 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
                 </div>
+                <div class="mb-4">
+                    <label class="block text-gray-600 font-semibold mb-2">Email</label>
+                    <input type="text" value="Sugeng@gmail.com"
+                        class="w-full border-gray-300 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
 
                 <!-- Birthday -->
                 <div class="mb-4">
@@ -86,7 +91,7 @@
         </div>
     </div>
 
-    <script>
+    {{-- <script>
         function previewProfilePicture(event) {
             const file = event.target.files[0];
             if (file) {
@@ -108,5 +113,5 @@
                 reader.readAsDataURL(file);
             }
         }
-    </script>
+    </script> --}}
 </x-layout>

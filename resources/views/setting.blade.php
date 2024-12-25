@@ -9,11 +9,13 @@
                         Account
                     </button>
                 </li>
+                <hr class="border-t border-gray-300 my-2">
                 <li>
                     <button onclick="showTab('privacy')" class="w-full text-left text-gray-700 hover:text-blue-500 font-semibold">
                         Privacy
                     </button>
                 </li>
+                <hr class="border-t border-gray-300 my-2">
                 <li>
                     <a href="#" class="text-red-500 hover:underline font-semibold">Logout</a>
                 </li>
@@ -31,33 +33,40 @@
                         <p class="text-sm text-gray-500">Bandung, Indonesia</p>
                     </div>
                 </div>
+                <hr class="border-t border-gray-300 my-4">
+
                 <div class="space-y-4">
                     <div>
                         <p class="font-semibold text-gray-600">Name:</p>
                         <p class="data-name">Pa Sugeng</p>
                     </div>
+                    <hr class="border-t border-gray-300 my-4">
                     <div>
                         <p class="font-semibold text-gray-600">Birthday:</p>
                         <p class="data-birthday">12/12/2004</p>
                     </div>
+                    <hr class="border-t border-gray-300 my-4">
                     <div>
                         <p class="font-semibold text-gray-600">Gender:</p>
                         <p class="data-gender">Male</p>
                     </div>
+                    <hr class="border-t border-gray-300 my-4">
                     <div>
                         <p class="font-semibold text-gray-600">Country:</p>
                         <p class="data-country">Indonesia</p>
                     </div>
+                    <hr class="border-t border-gray-300 my-4">
                     <div>
                         <p class="font-semibold text-gray-600">City:</p>
                         <p class="data-city">Bandung</p>
                     </div>
                 </div>
+                <hr class="border-t border-gray-300 my-4">
 
                 <div class="text-right mt-6">
                     <a href="/edit-setting"
                         class="bg-orange-500 text-white font-bold py-2 px-6 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400">
-                        Edit Settings
+                        Change
                     </a>
                 </div>
             </div>
@@ -65,24 +74,38 @@
             <!-- Privacy Tab -->
             <div id="privacy" class="tab-content hidden">
                 <h3 class="text-xl font-bold mb-6">Privacy Settings</h3>
+                <hr class="border-t border-gray-300 my-4">
+                <div>
+                    <p class="font-semibold text-gray-600">Email:</p>
+                    <div class="flex items-center justify-between">
+                        <p class="text-gray-700">Sugeng@gmail.com</p>
+                        <button onclick="updatePhoneNumber()" class="px-3 py-1 bg-blue-500 text-white text-sm rounded hover:bg-blue-600">
+                            Change
+                        </button>
+                    </div>
+
+                </div>
+                <hr class="border-t border-gray-300 my-4">
 
                 <!-- Phone Number -->
                 <div class="mb-6">
-                    <h4 class="font-semibold text-gray-800">Phone Number</h4>
+                    <p class="font-semibold text-gray-600">Nomor Telephone</p>
                     <div class="flex items-center justify-between">
                         <p class="text-gray-700">+62 812-3456-7890</p>
                         <button onclick="updatePhoneNumber()" class="px-3 py-1 bg-blue-500 text-white text-sm rounded hover:bg-blue-600">
-                            Ganti
+                            Change
                         </button>
                     </div>
                 </div>
-
+                <hr class="border-t border-gray-300 my-4">
+                
                 <!-- Change Password -->
                 <div class="mb-6">
                     <a href="/change-password" class="px-3 py-1 bg-blue-500 text-white text-sm rounded hover:bg-blue-600">
                         Change Password
                     </a>
                 </div>
+                <hr class="border-t border-gray-300 my-4">
 
                 <!-- Delete Account -->
                 <div>
@@ -90,6 +113,7 @@
                         Delete Account
                     </button>
                 </div>
+                <hr class="border-t border-gray-300 my-4">
             </div>
         </div>
     </div>

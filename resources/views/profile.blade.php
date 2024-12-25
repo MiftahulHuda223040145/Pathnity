@@ -75,7 +75,7 @@
         </div>
 
         <!-- Edit Form Modal -->
-        <div id="editFormModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <div id="editFormModal" class="fixed inset-0 bg-black bg-opacity-50 flex hidden justify-center items-center">
             <div class="bg-white p-6 rounded-md w-full max-w-md">
                 <h2 id="editFormTitle" class="text-xl font-bold mb-4">Edit</h2>
                 <form id="editForm">
@@ -89,38 +89,4 @@
         </div>
 
     </div>
-
-    <script>
-        function openEditForm(section) {
-            const modal = document.getElementById('editFormModal');
-            const title = document.getElementById('editFormTitle');
-            const form = document.getElementById('editForm');
-
-            title.textContent = `Edit ${section.charAt(0).toUpperCase() + section.slice(1)}`;
-
-            // Dynamic form content based on section
-            if  (section === 'skills') {
-                form.innerHTML = `
-                    <label class="block mb-2">Skills</label>
-                    <textarea class="w-full border px-4 py-2 rounded mb-4" placeholder="Enter skills"></textarea>
-                `;
-            } else if (section === 'education') {
-                form.innerHTML = `
-                    <label class="block mb-2">Institution</label>
-                    <input type="text" class="w-full border px-4 py-2 rounded mb-4" placeholder="Enter institution">
-                    <label class="block mb-2">Degree</label>
-                    <input type="text" class="w-full border px-4 py-2 rounded mb-4" placeholder="Enter degree">
-                    <label class="block mb-2">Year</label>
-                    <input type="text" class="w-full border px-4 py-2 rounded mb-4" placeholder="Enter year">
-                `;
-            }
-
-            modal.classList.remove('hidden');
-        }
-
-        function closeEditForm() {
-            const modal = document.getElementById('editFormModal');
-            modal.classList.add('hidden');
-        }
-    </script>
 </x-layout>
