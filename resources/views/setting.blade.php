@@ -66,22 +66,21 @@
                     <p>{{ auth('web')->user()->gender }}</p>
                 </div>
                 <div>
-                    <p class="font-semibold text-gray-600">Country:</p>
-                    <p>Indonesia</p>
+                    <p class="font-semibold text-gray-600">Full Address:</p>
+                    <p>{{ auth()->user()->address }}</p> <!-- Tampilkan alamat lengkap -->
                 </div>
-                <div>
-                    <p class="font-semibold text-gray-600">City:</p>
-                    <p>Bandung</p>
-                </div>
+
+
+
             </div>
             <div class="text-right mt-6">
                 <a href="/edit-setting"
                     class="bg-orange-500 text-white font-bold py-2 px-6 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400">
-                    Edit Settings
+                    Edit Profile
                 </a>
             </div>
         </div>
     </div>
 
-    
+
 </x-layout>

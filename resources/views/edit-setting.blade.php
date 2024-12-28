@@ -62,19 +62,61 @@
                     </select>
 
                 </div>
-
+                {{-- 
                 <div class="mb-4">
-                    <label class="block text-gray-600 font-semibold mb-2">City</label>
-                    <input type="text" name="city" id="city"
-                        value="{{ old('city', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[0] : '') }}"
+                    <label class="block text-gray-600 font-semibold mb-2">Adress</label>
+                    <input type="text" name="district" id="district"
+                        value="{{ old('district', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[0] : '') }}"
                         class="w-full border-gray-300 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-600 font-semibold mb-2">Country</label>
-                    <input type="text" name="country" id="country"
-                        value="{{ old('country', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[1] ?? '' : '') }}"
+                    <input type="text" name="regency" id="regency"
+                        value="{{ old('regency', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[1] ?? '' : '') }}"
                         class="w-full border-gray-300 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
                 </div>
+                <div class="mb-4">
+                    <label class="block text-gray-600 font-semibold mb-2">Country</label>
+                    <input type="text" name="province" id="province"
+                        value="{{ old('province', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[2] ?? '' : '') }}"
+                        class="w-full border-gray-300 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div> --}}
+                <div class="mb-6">
+                    <label for="province"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Province</label>
+                    <select id="province-select" name="province" required
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:text-white">
+                        <option
+                            value="{{ old('province', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[0] ?? '' : '') }}">
+                            Select Province</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label for="regency"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Regency</label>
+                    <select id="city-select" name="regency" required
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:text-white">
+                        <option
+                            value="{{ old('province', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[1] ?? '' : '') }}"
+                            disabled selected>Select Regency</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label for="district"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">District</label>
+                    <select id="district-select" name="district" required
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:text-white">
+                        <option
+                            value="{{ old('province', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[2] ?? '' : '') }}"
+                            disabled selected>Select District</option>
+                    </select>
+                </div>
+                <input type="hidden" name="address" id="address">
+                <input type="hidden" id="hidden-province" name="province">
+                <input type="hidden" id="hidden-city" name="regency">
+                <input type="hidden" id="hidden-district" name="district">
                 <div class="text-right mt-6">
                     <button type="submit"
                         class="bg-green-500 text-white font-bold py-2 px-6 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400">

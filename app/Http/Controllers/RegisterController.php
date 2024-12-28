@@ -16,12 +16,19 @@ class RegisterController extends Controller
             'gender' => 'required|in:male,female',
             'phone_number' => 'required|digits_between:10,15',
             'birth_date' => 'required|date|before:today',
-            'address' => 'required|string|max:255',
+            'province' => 'required|string',
+            'regency' => 'required|string',
+            'district' => 'required|string',
             'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:5|max:255|confirmed'
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
 
+        $provinceName = $validatedData['province'];
+        $regencyName = $validatedData['regency'];
+        $districtName = $validatedData['district'];
+        $fullAddress = "$districtName, $regencyName, $provinceName";
+        $validatedData['address'] = $fullAddress;
         User::create($validatedData);
 
         return redirect('/login')->with('success', 'Registration successfull! Please Login');

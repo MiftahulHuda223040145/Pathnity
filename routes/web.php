@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SocialiteController;
 
@@ -148,3 +149,8 @@ Route::get('/change-password', function () {
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/api/locations/provinces', [LocationController::class, 'getProvinces']);
+Route::get('/api/locations/cities', [LocationController::class, 'getCities']);
+Route::get('/api/locations/districts', [LocationController::class, 'getDistricts']);
+
