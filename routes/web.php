@@ -88,7 +88,7 @@ Route::get('/', function () {
         'gas.png',
         'tea.png',
     ];
-    
+
 
     return view('home', compact('jobs', 'volunteers', 'logos'));
 });
@@ -180,6 +180,13 @@ Route::get('/progress', function () {
     return view('apply.progress-apply');
 });
 
+Route::get('/interview', function () {
+    return view('career.listinterview');
+});
+
+Route::get('/interview2', function () {
+    return view('career.interview');
+});
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);

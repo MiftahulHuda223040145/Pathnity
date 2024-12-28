@@ -22,6 +22,14 @@
     <div class="text-left py-4 ml-24 mb-5">  
         <p>Pathinity adalah platform <br> penghubung untuk talent <br>dengan organisasi atau <br> perusahaan.</p>  
     </div>  
+     <div class="mt-4 mb-4 place-items-center">
+    <div>
+        <a href="/term-condition" class="text-[#909090] hover:text-white hover:underline mx-4">TERM OF SERVICE</a>
+        <a href="/about" class="text-[#909090] hover:text-white hover:underline mx-4">ABOUT US</a>
+        <a href="#" class="text-[#909090] hover:text-white hover:underline mx-4">PRIVACY POLICY</a>
+    </div>
+</div>
+
     <div class="bg-orange-500 text-center py-4">  
         <p>Copyright Techonnect 2024</p>  
     </div>  
