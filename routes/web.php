@@ -151,3 +151,8 @@ Route::get('/post-carier', function () {
 Route::get('/accept-employe', function () {
     return view('accept-employe');
 });
+
+Route::get('/accept-interview', function () {
+    return view('accept-interview');
+});
+
