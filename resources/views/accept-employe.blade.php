@@ -38,7 +38,7 @@
                 </div>
 
                 <!-- Karyawan Pending Section -->
-                <h1 class="text-3xl font-bold mb-4 text-gray-800">Your Applicant</h1>
+                <h1 class="text-xl font-semibold mb-4 text-gray-800">Your Applicant</h1>
                 <div class="overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500 dark-mode:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark-mode:bg-gray-700 dark-mode:text-gray-400">
@@ -70,10 +70,32 @@
                                 </td>
                                 <td class="px-6 py-4 flex space-x-2">
                                     <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
-                                        Terima
+                                       Interview
                                     </button>
                                     <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded reject-button" data-id="1">
-                                        Tolak
+                                        Reject
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Tambahkan baris lainnya di sini -->
+                        </tbody>
+                        <tbody>
+                            <tr class="bg-white border-b dark-mode:bg-gray-800 dark-mode:border-gray-700">
+                                <td class="px-6 py-4">
+                                    PPN 12%
+                                </td>
+                                <td class="px-6 py-4">
+                                    CintaRakyat@example.com
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://example.com/cv/john_doe.pdf" target="_blank" class="text-blue-500 hover:underline">Lihat CV</a>  <!-- Ganti dengan URL CV dari backend -->
+                                </td>
+                                <td class="px-6 py-4 flex space-x-2">
+                                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
+                                        Interview
+                                    </button>
+                                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded reject-button" data-id="1">
+                                        Reject
                                     </button>
                                 </td>
                             </tr>
@@ -84,24 +106,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Contoh sederhana - Ganti dengan AJAX call ke backend Anda
-        const acceptButtons = document.querySelectorAll('.accept-button');
-        const rejectButtons = document.querySelectorAll('.reject-button');
-
-        acceptButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const employeeId = button.dataset.id;
-                alert(`Karyawan dengan ID ${employeeId} diterima.  (Ini simulasi, ganti dengan AJAX call ke backend)`);
-            });
-        });
-
-        rejectButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const employeeId = button.dataset.id;
-                alert(`Karyawan dengan ID ${employeeId} ditolak. (Ini simulasi, ganti dengan AJAX call ke backend)`);
-            });
-        });
-    </script>
 </x-layout>

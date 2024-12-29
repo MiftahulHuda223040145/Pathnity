@@ -8,6 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+  <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+
 </head>
 <body class="h-screen flex flex-col m-0 p-0">
     <x-navbar></x-navbar>
@@ -22,6 +25,15 @@
     <script src="{{ asset('js/upload-modal.js') }}" defer></script>
     <script src="{{ asset('js/toggle-password.js') }}"></script>
     <script src="{{ asset('js/edit-form.js') }}"></script>
+    <script src="{{ asset('js/accemploye.js') }}"></script>
+    <script>
+        document.addEventListener('trix-file-accept', function(e) {
+        e.preventDefault();
+        });
+    </script>
+
+
+  
 
     
 

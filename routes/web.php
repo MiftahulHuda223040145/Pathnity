@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     $jobs = [
@@ -156,3 +157,19 @@ Route::get('/accept-interview', function () {
     return view('accept-interview');
 });
 
+Route::get('/interview', function () {
+    return view('interview');
+})->name('interview.page');
+
+Route::post('/interview/submit', function (Request $request) {
+    // Validasi data
+    $validated = $request->validate([
+        'description1' => 'required|string|max:255',
+        'description2' => 'nullable|string|max:255',
+        'details' => 'required|string',
+    ]);
+
+    // Logika simpan ke database atau lainnya bisa ditambahkan di sini.
+
+    return redirect()->route('interview.page')->with('success', 'Interview submitted successfully!');
+})->name('interview.submit');
