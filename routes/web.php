@@ -173,3 +173,20 @@ Route::post('/interview/submit', function (Request $request) {
 
     return redirect()->route('interview.page')->with('success', 'Interview submitted successfully!');
 })->name('interview.submit');
+
+Route::get('/apply', function () {
+    return view('apply');
+})->name('apply.page');
+
+Route::post('/apply/submit', function (Request $request) {
+    // Validasi data
+    $validated = $request->validate([
+        'description1' => 'required|string|max:255',
+        'description2' => 'nullable|string|max:255',
+        'details' => 'required|string',
+    ]);
+
+    // Logika simpan ke database atau lainnya bisa ditambahkan di sini.
+
+    return redirect()->route('apply.page')->with('success', 'apply submitted successfully!');
+})->name('apply.submit');

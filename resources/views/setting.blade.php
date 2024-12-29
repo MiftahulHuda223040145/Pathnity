@@ -52,13 +52,8 @@
                     </div>
                     <hr class="border-t border-gray-300 my-4">
                     <div>
-                        <p class="font-semibold text-gray-600">Country:</p>
-                        <p class="data-country">Indonesia</p>
-                    </div>
-                    <hr class="border-t border-gray-300 my-4">
-                    <div>
-                        <p class="font-semibold text-gray-600">City:</p>
-                        <p class="data-city">Bandung</p>
+                        <p class="font-semibold text-gray-600">Address:</p>
+                        <p class="data-country">Bandung, Indonesia</p>
                     </div>
                 </div>
                 <hr class="border-t border-gray-300 my-4">

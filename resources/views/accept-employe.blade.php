@@ -69,9 +69,9 @@
                                     <a href="https://example.com/cv/john_doe.pdf" target="_blank" class="text-blue-500 hover:underline">Lihat CV</a>  <!-- Ganti dengan URL CV dari backend -->
                                 </td>
                                 <td class="px-6 py-4 flex space-x-2">
-                                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
+                                    <a href="/interview"> <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
                                        Interview
-                                    </button>
+                                    </button></a> 
                                     <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded reject-button" data-id="1">
                                         Reject
                                     </button>
