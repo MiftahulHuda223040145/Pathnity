@@ -40,7 +40,7 @@ class UserController extends Controller
             'province' => 'required|string',
             'regency' => 'required|string',
             'district' => 'required|string',
-            'password' => 'required|min:5|max:255|confirmed'
+            'password' => 'required|min:8|max:255|confirmed'
         ]);
 
         // Ambil nama provinsi, kota, kecamatan dari request
@@ -89,9 +89,16 @@ class UserController extends Controller
         $user->address = $fullAddress;
 
         if ($request->hasFile('profilePicture')) {
-            $profilePicturePath = $request->file('profilePicture')->store('profile_pictures', 'public');
-            $user->avatar = $profilePicturePath;
+            $profilePicture = $request->file('profilePicture');
+            $fileName = 'profile_' . Auth::id() . '.' . $profilePicture->getClientOriginalExtension();
+
+            // Pindahkan gambar ke folder public/img/profile
+            $profilePicture->move(public_path('img/profile'), $fileName);
+
+            $user->avatar = 'img/profile/' . $fileName;
         }
+
+
 
         // Simpan perubahan
         $user->save();
