@@ -16,7 +16,20 @@
                 </div>
                 <div class="mb-3">
                     <label for = "image" class="form-label">Image</label>
+                </div>
                     <input type="file" name="image" placeholder="image" id="id" required >
                     <button type="submit">Save</button>
     </form>
+
+    <script>
+const title = document.querySelector(#title);
+const slug = document.querySelector(#slug);
+
+title.addEventListener('change', function() {
+   fetch('createSlug')
+   .then(response => response.json())
+   .then(data => 
+       slug.value = data.slug)
+});
+        </script>
 </x-layout>
