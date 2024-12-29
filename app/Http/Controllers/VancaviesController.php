@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage; // Pastikan namespace ini ada
 use App\Models\Vancavies;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VancaviesController extends Controller
 {
@@ -13,7 +13,10 @@ class VancaviesController extends Controller
      */
     public function index()
     {
+        // Mengambil semua data vancavies dari database
         $vancavies = Vancavies::all();
+
+        // Mengembalikan view dengan data vancavies
         return view('vancavies.index', compact('vancavies'));
     }
 
@@ -22,6 +25,7 @@ class VancaviesController extends Controller
      */
     public function create()
     {
+        // Menampilkan form untuk membuat vancavy baru
         return view('vancavies.create');
     }
 
@@ -30,20 +34,22 @@ class VancaviesController extends Controller
      */
     public function store(Request $request)
     {
+        // Validasi data yang masuk
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
             'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        // Jika ada file gambar diunggah
+        // Cek apakah ada file gambar yang diupload
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('vancavies', 'public');
         }
 
-        // Simpan data ke database
+        // Menyimpan data vancavy baru ke database
         Vancavies::create($validated);
 
+        // Redirect ke halaman index vancavies dengan pesan sukses
         return redirect()->route('vancavies.index')->with('success', 'Vancavies created successfully.');
     }
 
@@ -52,6 +58,7 @@ class VancaviesController extends Controller
      */
     public function show(Vancavies $vancavy)
     {
+        // Menampilkan halaman detail vancavy
         return view('vancavies.show', compact('vancavy'));
     }
 
@@ -60,6 +67,7 @@ class VancaviesController extends Controller
      */
     public function edit(Vancavies $vancavy)
     {
+        // Menampilkan form untuk mengedit data vancavy
         return view('vancavies.edit', compact('vancavy'));
     }
 
@@ -68,6 +76,7 @@ class VancaviesController extends Controller
      */
     public function update(Request $request, Vancavies $vancavy)
     {
+        // Validasi data yang masuk
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
@@ -85,9 +94,10 @@ class VancaviesController extends Controller
             $validated['image'] = $request->file('image')->store('vancavies', 'public');
         }
 
-        // Update data di database
+        // Update data vancavy di database
         $vancavy->update($validated);
 
+        // Redirect ke halaman index vancavies dengan pesan sukses
         return redirect()->route('vancavies.index')->with('success', 'Vancavies updated successfully.');
     }
 
@@ -101,9 +111,10 @@ class VancaviesController extends Controller
             Storage::disk('public')->delete($vancavy->image);
         }
 
-        // Hapus data dari database
+        // Hapus data vancavy dari database
         $vancavy->delete();
 
+        // Redirect ke halaman index vancavies dengan pesan sukses
         return redirect()->route('vancavies.index')->with('success', 'Vancavies deleted successfully.');
     }
 }

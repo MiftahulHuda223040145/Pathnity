@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\VancaviesController;
 
+
 Route::get('/', function () {
     $jobs = [
         [
