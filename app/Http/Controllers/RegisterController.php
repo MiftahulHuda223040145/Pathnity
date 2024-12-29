@@ -20,7 +20,7 @@ class RegisterController extends Controller
             'regency' => 'required|string',
             'district' => 'required|string',
             'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:5|max:255|confirmed'
+            'password' => 'required|min:8|max:255|confirmed'
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
 

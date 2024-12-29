@@ -120,4 +120,31 @@ class UserController extends Controller
 
         return view('setting', compact('districtName', 'regencyName', 'provinceName'));
     }
+
+    public function changePassword(Request $request)
+    {
+        $user = Auth::user();
+        $userId = $user->id;
+
+        $user = User::findOrFail($userId);
+        $validated = $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8|confirmed|different:current_password',
+        ], [
+            'new_password.different' => 'The new password must be different from the current password.',
+            'new_password.confirmed' => 'The new password confirmation does not match.',
+        ]);
+
+        // Memeriksa apakah current password cocok dengan yang ada di database
+        if (!Hash::check($validated['current_password'], $user->password)) {
+            return back()->withErrors(['current_password' => 'Current password is incorrect.']);
+        }
+
+        // Update password user
+        $user->password = Hash::make($validated['new_password']);
+        $user->save();
+
+        // Redirect dengan pesan sukses
+        return redirect('/setting')->with('success', 'Password changed successfully!');
+    }
 }

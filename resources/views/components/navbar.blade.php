@@ -15,7 +15,10 @@
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                     data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="{{ auth('web')->user()->avatar }}" alt="user photo">
+                    <img class="w-8 h-8 rounded-full"
+                        src="{{ auth('web')->user()->avatar ? asset(auth('web')->user()->avatar) : asset('/img/profile/avatar_default.png') }}"
+                        alt="user photo">
+
                 </button>
 
                 <!-- Dropdown menu -->

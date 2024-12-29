@@ -136,15 +136,16 @@ Route::get('/career', function () {
 
 Route::get('/setting', function () {
     return view('setting');
-});
+})->middleware('auth:web');
 Route::get('/edit-setting', function () {
     return view('edit-setting');
-});
-Route::put('/edit-setting', [UserController::class, 'updateProfile'])->name('user.updateProfile');
+})->middleware('auth:web');
+Route::put('/edit-setting', [UserController::class, 'updateProfile'])->name('user.updateProfile')->middleware('auth:web');
 
 Route::get('/change-password', function () {
     return view('change-password');
-});
+})->middleware('auth:web');
+Route::put('/change-password', [UserController::class, 'changePassword'])->middleware('auth:web');
 
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
@@ -153,4 +154,24 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/api/locations/provinces', [LocationController::class, 'getProvinces']);
 Route::get('/api/locations/cities', [LocationController::class, 'getCities']);
 Route::get('/api/locations/districts', [LocationController::class, 'getDistricts']);
+
+Route::get('/profile', function () {
+    return view('profile');
+})->middleware('auth:web');
+
+Route::get('/seemore-experience', function () {
+    return view('seemore-experience');
+})->middleware('auth:web');
+
+Route::get('/post-carier', function () {
+    return view('post-carier');
+});
+
+Route::get('/accept-employe', function () {
+    return view('accept-employe');
+});
+
+Route::get('/accept-interview', function () {
+    return view('accept-interview');
+});
 

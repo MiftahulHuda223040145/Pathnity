@@ -47,14 +47,14 @@
                         <label for="Gender"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
                         <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 mb-2">
-                            <input id="male" type="radio" value="male" name="gender"
+                            <input id="male" type="radio" value="Male" name="gender"
                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600
                                 @error('gender') peer invalid:border-pink-500 invalid:ring-pink-500 @enderror"{{ old('gender') == 'male' ? 'checked' : '' }}>
                             <label for="male"
                                 class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
                         </div>
                         <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                            <input id="female" type="radio" value="female" name="gender"
+                            <input id="female" type="radio" value="Female" name="gender"
                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600
                                 @error('gender') peer invalid:border-pink-500 invalid:ring-pink-500 @enderror"
                                 {{ old('gender') == 'female' ? 'checked' : '' }}>
@@ -142,26 +142,36 @@
                     @enderror
                 </div>
                 {{-- Password --}}
-                <div class="mb-6">
+                <div class="relative mb-6">
                     <label for="password"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                     <input type="password" id="password" name="password" placeholder="•••••••••"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
-                        @error('password') invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 @enderror""
+                        @error('password') invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 @enderror"
                         required />
+                    <span class="absolute inset-y-0 right-3 flex items-center cursor-pointer mt-8"
+                        onclick="togglePasswordVisibility('password', this)">
+                        <img id="eye-icon-password" src="{{ asset('img/password/hidden.png') }}"
+                            alt="Show/Hide Password" class="w-5 h-5">
+                    </span>
                     @error('password')
                         <p class="mt-2 text-sm text-pink-600">{{ $message }}</p>
                     @enderror
                 </div>
                 {{-- Confirm Password --}}
-                <div class="mb-6">
+                <div class="relative mb-6">
                     <label for="password_confirmation"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
                     <input type="password" id="password_confirmation" name="password_confirmation"
                         placeholder="•••••••••"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
-                        @error('password_confirmation') invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 @enderror""
+                        @error('password_confirmation') invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 @enderror"
                         required />
+                    <span class="absolute inset-y-0 right-3 flex items-center cursor-pointer mt-8"
+                        onclick="togglePasswordVisibility('password_confirmation', this)">
+                        <img id="eye-icon-confirm-password" src="{{ asset('img/password/hidden.png') }}"
+                            alt="Show/Hide Password" class="w-5 h-5">
+                    </span>
                     @error('password_confirmation')
                         <p class="mt-2 text-sm text-pink-600">{{ $message }}</p>
                     @enderror

@@ -8,8 +8,9 @@
                 <div class="mb-4 text-center">
                     <label class="block text-gray-600 font-semibold mb-2">Profile Picture</label>
                     <div class="relative inline-block">
-                        <img id="profilePreview" src="{{ auth('web')->user()->avatar }}" alt="Profile Picture"
-                            class="w-24 h-24 rounded-full border border-gray-300 shadow-md">
+                        <img id="profilePreview"
+                            src="{{ auth('web')->user()->avatar ? asset(auth('web')->user()->avatar) : asset('/img/profile/avatar_default.png') }}"
+                            alt="Profile Picture" class="w-24 h-24 rounded-full border border-gray-300 shadow-md">
                         <label for="profilePicture"
                             class="absolute bottom-0 right-0 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full cursor-pointer hover:bg-blue-600 focus:ring-2 focus:ring-blue-400">
                             Change
@@ -62,25 +63,7 @@
                     </select>
 
                 </div>
-                {{-- 
-                <div class="mb-4">
-                    <label class="block text-gray-600 font-semibold mb-2">Adress</label>
-                    <input type="text" name="district" id="district"
-                        value="{{ old('district', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[0] : '') }}"
-                        class="w-full border-gray-300 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-600 font-semibold mb-2">Country</label>
-                    <input type="text" name="regency" id="regency"
-                        value="{{ old('regency', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[1] ?? '' : '') }}"
-                        class="w-full border-gray-300 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-600 font-semibold mb-2">Country</label>
-                    <input type="text" name="province" id="province"
-                        value="{{ old('province', auth('web')->user()->address ? explode(',', auth('web')->user()->address)[2] ?? '' : '') }}"
-                        class="w-full border-gray-300 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                </div> --}}
+
                 <div class="mb-6">
                     <label for="province"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Province</label>

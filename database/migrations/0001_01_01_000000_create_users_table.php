@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('auth_provider')->nullable();
             $table->string('auth_provider_id')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('role')->default('user');
             $table->timestamp('email_verified_at')->nullable()->unique();
             $table->rememberToken();
             $table->timestamps();
