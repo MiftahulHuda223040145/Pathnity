@@ -1,4 +1,9 @@
+<?php
+$avatarPath = auth('web')->user()->avatar;
+$avatarUrl = $avatarPath && file_exists(public_path($avatarPath)) ? asset($avatarPath) : asset('/img/profile/avatar_default.png');
+?>
 <x-layout>
+
     <div class="container mx-auto p-6 mt-12">
         <div class="bg-white shadow-md rounded-md overflow-hidden">
             <!-- Background Image -->
@@ -9,8 +14,7 @@
             <div class="p-6 flex flex-col items-center">
                 <div
                     class="w-24 h-24 rounded-full border-4 border-gray-200 bg-gray-200 flex items-center justify-center -mt-12">
-                    <img src="{{ auth('web')->user()->avatar ? asset(auth('web')->user()->avatar) : asset('/img/profile/avatar_default.png') }}"
-                        alt="Profile Image" class="w-24 h-24 rounded-full object-cover">
+                    <img src="{{ $avatarUrl }}" alt="Profile Image" class="w-24 h-24 rounded-full object-cover">
                 </div>
                 <h2 class="text-center text-xl font-bold mt-4">
                     {{ auth('web')->user()->first_name . ' ' . auth('web')->user()->last_name }}</h2>

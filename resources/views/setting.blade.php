@@ -1,3 +1,7 @@
+<?php
+$avatarPath = auth('web')->user()->avatar;
+$avatarUrl = $avatarPath && file_exists(public_path($avatarPath)) ? asset($avatarPath) : asset('/img/profile/avatar_default.png');
+?>
 <x-layout>
     @if (session()->has('success'))
         <div id="notification"
@@ -54,9 +58,8 @@
             <!-- Profile Tab -->
             <div id="profile" class="tab-content">
                 <div class="flex items-center space-x-4 mb-6">
-                    <img id="profile-picture"
-                        src="{{ auth('web')->user()->avatar ? asset(auth('web')->user()->avatar) : asset('/img/profile/avatar_default.png') }}"
-                        alt="Profile Picture" class="w-20 h-20 rounded-full shadow-md">
+                    <img id="profile-picture" src="{{ $avatarUrl }}" alt="Profile Picture"
+                        class="w-20 h-20 rounded-full shadow-md">
                     <div>
                         <p class="text-lg font-semibold text-gray-800">{{ auth('web')->user()->first_name }}</p>
                         <p class="text-sm text-gray-500">{{ trim(explode(',', auth()->user()->address)[2] ?? '') }}</p>

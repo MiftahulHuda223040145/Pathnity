@@ -21,17 +21,10 @@
 
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="{{ asset('js/settings.js') }}"></script>
-    <script src="{{ asset('js/profile-picture.js') }}"></script>
     <script src="{{ asset('js/upload-modal.js') }}" defer></script>
     <script src="{{ asset('js/toggle-password.js') }}"></script>
     <script src="{{ asset('js/edit-form.js') }}"></script>
     <script src="{{ asset('js/fetchLocation.js') }}"></script>
-
-
-
-
-
-
 
 </body>
 

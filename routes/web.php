@@ -105,6 +105,7 @@ Route::get('/login', function () {
     return view('login');
 })->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/blog', function () {
     return view('blog');
@@ -116,7 +117,6 @@ Route::get('/register', function () {
 
 Route::post('/register', [RegisterController::class, 'store']);
 
-// routes/web.php
 Route::middleware('auth:web')->group(function () {
     Route::get('/register-complete', [UserController::class, 'showForm'])->name('user.showForm');
     Route::put('/register-complete', [UserController::class, 'update'])->name('register.complete');
@@ -125,6 +125,7 @@ Route::middleware('auth:web')->group(function () {
 Route::get('/register-organizer', function () {
     return view('register-organizer');
 })->middleware('guest');
+Route::post('/register-organizer', [RegisterController::class, 'storeOrganizer']);
 
 Route::get('/term-condition', function () {
     return view('term-condition');
@@ -149,7 +150,6 @@ Route::put('/change-password', [UserController::class, 'changePassword'])->middl
 
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
-Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/api/locations/provinces', [LocationController::class, 'getProvinces']);
 Route::get('/api/locations/cities', [LocationController::class, 'getCities']);
@@ -174,4 +174,3 @@ Route::get('/accept-employe', function () {
 Route::get('/accept-interview', function () {
     return view('accept-interview');
 });
-
