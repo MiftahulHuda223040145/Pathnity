@@ -23,6 +23,10 @@
     <div class="p-4 sm:ml-64">
         <div class="p-4 bg-white rounded-lg mt-14">
             <div class="relative overflow-x-auto sm:rounded-lg">
+                <a href="/pdf-report"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Download PDF Report
+                </a>
                 <!-- Search Input -->
                 <x-dashboard.search></x-dashboard.search>
 
@@ -102,6 +106,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Add this JavaScript to handle live search -->
     <script>

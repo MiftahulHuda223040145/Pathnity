@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Organizer;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -86,5 +88,13 @@ class OrganizerController extends Controller
 
         // Redirect dengan pesan sukses
         return redirect('/settingOrg')->with('success', 'Password changed successfully!');
+    }
+
+    public function generatePdfReport()
+    {
+        $organizers = Organizer::all();
+        $pdf = Pdf::loadView('dashboard.organizer.pdf', compact('organizers'));
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('Organizer_Report.pdf');
     }
 }

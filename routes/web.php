@@ -211,9 +211,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('organizer/search', [AdminController::class, 'searchOrganizer'])->name('organizer.search');
 
 
-
-
-
     Route::get('/dashboard/vacancies', function () {
         return view('dashboard.vacancies.vacancies');
     });
@@ -234,4 +231,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/dashboard/blogs', function () {
         return view('dashboard.blog.blogs');
     });
+
+    Route::get('/pdf-report', [OrganizerController::class, 'generatePdfReport'])->name('organizer.pdf-report');
 });
