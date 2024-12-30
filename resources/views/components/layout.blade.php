@@ -8,10 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
-<body class=" h-screen flex flex-col">
+<body class=" h-screen flex flex-col bg-[#F7F7F7]">
     <x-navbar></x-navbar>
-    <main class="bg-[#F7F7F7]">
+    <main>
         {{$slot}}
+
+        {{-- if user not login --}}
+        {{-- <x-not-login></x-not-login> --}}
     </main>
     <x-footer></x-footer>
     <script src="{{ asset('js/navbar.js') }}"></script>

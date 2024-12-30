@@ -35,7 +35,8 @@
                                     <h3 class="text-lg font-semibold">{{ $job['title'] }}</h3>
                                     <p class="text-gray-600">{{ $job['company_name'] }}</p>
                                     <p class="text-gray-600">{{ $job['location'] }}</p>
-                                    <p class="text-gray-600">Status: {{ $job['status'] }}</p>
+                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">{{ $job['status'] }}</span>
+                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
                                     <p class="text-gray-600">Gaji: Rp {{ number_format($job['salary'], 0, ',', '.') }}</p>
                                 </div>
                             </div>
@@ -57,6 +58,8 @@
                                 <h3 class="text-lg font-semibold">{{ $volunteer['title'] }}</h3>
                                 <p class="text-gray-600">{{ $volunteer['organization'] ?: 'Tidak disebutkan' }}</p>
                                 <p class="text-gray-600">{{ $volunteer['location'] }}</p>
+                                <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
+                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
                                 <p class="text-gray-600">Tanggal: {{ $volunteer['date'] }}</p>
                             </div>
                         </div>

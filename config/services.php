@@ -44,5 +44,10 @@ return [
         'client_secret' => env('FB_CLIENT_SECRET'),
         'redirect' => env('FB_CALLBACK_REDIRECTS')
     ],
+    'api_wilayah' => [
+        'url' =>
+        env('API_WILAYAH_BASE_URL'),
+    ],
+
 
 ];
