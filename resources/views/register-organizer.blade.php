@@ -94,7 +94,7 @@
                                     <div class="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
                                         onclick="updatePosition('Manajer')">
                                         <div class="flex items-center h-5">
-                                            <input id="helper-radio-4" name="position" type="radio" value="manager"
+                                            <input id="helper-radio-4" name="position" type="radio" value="Manager"
                                                 class="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                         </div>
                                         <div class="ms-2 text-sm">
@@ -109,7 +109,7 @@
                                     <div class="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
                                         onclick="updatePosition('HRD')">
                                         <div class="flex items-center h-5">
-                                            <input id="helper-radio-5" name="position" type="radio" value="hrd"
+                                            <input id="helper-radio-5" name="position" type="radio" value="HRD"
                                                 class="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                         </div>
                                         <div class="ms-2 text-sm">
@@ -124,7 +124,7 @@
                                     <div class="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
                                         onclick="updatePosition('Admin')">
                                         <div class="flex items-center h-5">
-                                            <input id="helper-radio-6" name="position" type="radio" value="admin"
+                                            <input id="helper-radio-6" name="position" type="radio" value="Admin"
                                                 class="w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                         </div>
                                         <div class="ms-2 text-sm">

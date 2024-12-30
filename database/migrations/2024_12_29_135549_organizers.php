@@ -23,7 +23,7 @@ return new class extends Migration
             $table->String('email');
             $table->String('password');
             $table->string('avatar')->nullable();
-            $table->string('role')->default('organizer');
+            $table->tinyInteger('role')->default(1);
             $table->timestamp('email_verified_at')->nullable()->unique();
             $table->rememberToken();
             $table->timestamps();

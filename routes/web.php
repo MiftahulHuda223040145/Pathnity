@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SocialiteController;
 
@@ -103,7 +104,7 @@ Route::get('/search', function () {
 
 Route::get('/login', function () {
     return view('login');
-})->name('login')->middleware('guest');
+})->name('login')->middleware(['guest:web', 'guest:organizer']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -140,13 +141,26 @@ Route::get('/setting', function () {
 })->middleware('auth:web');
 Route::get('/edit-setting', function () {
     return view('edit-setting');
-})->middleware('auth:web');
+})->middleware('auth');
 Route::put('/edit-setting', [UserController::class, 'updateProfile'])->name('user.updateProfile')->middleware('auth:web');
 
 Route::get('/change-password', function () {
     return view('change-password');
 })->middleware('auth:web');
 Route::put('/change-password', [UserController::class, 'changePassword'])->middleware('auth:web');
+
+Route::get('/settingOrg', function () {
+    return view('settingOrg');
+})->middleware('auth:organizer');
+Route::get('/edit-organizer', function () {
+    return view('edit-organizer');
+})->middleware('auth:organizer');
+Route::put('/edit-organizer', [OrganizerController::class, 'updateOrganizer'])->name('organizer.update')->middleware('auth:organizer');
+Route::get('/change-password-org', function () {
+    return view('change-password-org');
+})->middleware('auth:organizer');
+Route::put('/change-password-org', [OrganizerController::class, 'changePassword'])->middleware('auth:organizer');
+
 
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
@@ -157,11 +171,11 @@ Route::get('/api/locations/districts', [LocationController::class, 'getDistricts
 
 Route::get('/profile', function () {
     return view('profile');
-})->middleware('auth:web');
+})->middleware('auth');
 
 Route::get('/seemore-experience', function () {
     return view('seemore-experience');
-})->middleware('auth:web');
+})->middleware('auth');
 
 Route::get('/post-carier', function () {
     return view('post-carier');

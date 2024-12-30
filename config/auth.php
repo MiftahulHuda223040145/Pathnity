@@ -40,7 +40,7 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'organizer' => [ 
+        'organizer' => [
             'driver' => 'session',
             'provider' => 'organizers',
         ],
@@ -69,7 +69,7 @@ return [
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
 
-        'organizers' => [ 
+        'organizers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Organizer::class,
         ],

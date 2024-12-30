@@ -1,3 +1,7 @@
+<?php
+$organizer = auth('organizer')->user();
+$avatarUrl = $organizer && $organizer->avatar && file_exists(public_path($organizer->avatar)) ? asset($organizer->avatar) : asset('/img/profile/avatar_default.png');
+?>
 <x-layout>
     @if (session()->has('success'))
         <div id="notification"
@@ -57,7 +61,8 @@
                     <img id="profile-picture" src="{{ $avatarUrl }}" alt="Profile Picture"
                         class="w-20 h-20 rounded-full shadow-md">
                     <div>
-                        <p class="text-lg font-semibold text-gray-800">{{ auth('web')->user()->first_name }}</p>
+                        <p class="text-lg font-semibold text-gray-800">
+                            {{ auth('organizer')->user()->organization_name }}</p>
                         <p class="text-sm text-gray-500">{{ trim(explode(',', auth()->user()->address)[2] ?? '') }}</p>
                     </div>
                 </div>
@@ -65,19 +70,25 @@
 
                 <div class="space-y-4">
                     <div>
-                        <p class="font-semibold text-gray-600">Name :</p>
+                        <p class="font-semibold text-gray-600">Username :</p>
                         <p class="data-name">
-                            {{ auth('web')->user()->first_name . ' ' . auth('web')->user()->last_name }}</p>
+                            {{ auth('organizer')->user()->username }}</p>
                     </div>
                     <hr class="border-t border-gray-300 my-4">
                     <div>
-                        <p class="font-semibold text-gray-600">Birthday :</p>
-                        <p class="data-birthday">{{ auth('web')->user()->birth_date }}</p>
+                        <p class="font-semibold text-gray-600">Position :</p>
+                        <p class="data-name">
+                            {{ auth('organizer')->user()->position }}</p>
                     </div>
                     <hr class="border-t border-gray-300 my-4">
                     <div>
-                        <p class="font-semibold text-gray-600">Gender :</p>
-                        <p class="data-gender">{{ auth('web')->user()->gender }}</p>
+                        <p class="font-semibold text-gray-600">Website :</p>
+                        <p class="data-birthday">{{ auth('organizer')->user()->website }}</p>
+                    </div>
+                    <hr class="border-t border-gray-300 my-4">
+                    <div>
+                        <p class="font-semibold text-gray-600">Tax Number :</p>
+                        <p class="data-gender">{{ auth('organizer')->user()->tax_id }}</p>
                     </div>
                     <hr class="border-t border-gray-300 my-4">
                     <div>
@@ -88,7 +99,7 @@
                 <hr class="border-t border-gray-300 my-4">
 
                 <div class="text-right mt-6">
-                    <a href="/edit-setting"
+                    <a href="/edit-organizer"
                         class="bg-orange-500 text-white font-bold py-2 px-6 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400">
                         Change
                     </a>
@@ -127,7 +138,7 @@
 
                 <!-- Change Password -->
                 <div class="mb-6">
-                    <a href="/change-password"
+                    <a href="/change-password-org"
                         class="px-3 py-1 bg-blue-500 text-white text-sm rounded hover:bg-blue-600">
                         Change Password
                     </a>

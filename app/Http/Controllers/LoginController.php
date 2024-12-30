@@ -11,37 +11,29 @@ class LoginController extends Controller
 {
     public function authenticate(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
 
-        // Cek apakah email ada di tabel users atau organizers
+        // Periksa apakah email ada di tabel User atau Organizer
         $user = User::where('email', $credentials['email'])->first();
         $organizer = Organizer::where('email', $credentials['email'])->first();
 
-        // Jika tidak ditemukan di kedua tabel
-        if (!$user && !$organizer) {
-            return back()->withErrors(['email' => 'Email not registered.']);
-        }
-
-        // Tentukan apakah login sebagai user atau organizer
         if ($user && Auth::guard('web')->attempt($credentials)) {
-            $role = $user->role;
+            $request->session()->regenerate();
+            return redirect()->intended('/');
         } elseif ($organizer && Auth::guard('organizer')->attempt($credentials)) {
-            $role = $organizer->role;
-        } else {
-            return back()->withErrors(['password' => 'Incorrect credentials.']);
+            $request->session()->regenerate();
+            // dd(Auth::guard('web')->check(), Auth::guard('organizer')->check(), Auth::user());
+            return redirect()->intended('/');
         }
 
-        // Setelah berhasil login, arahkan berdasarkan role
-        if ($role === 'admin') {
-            return redirect()->intended('/admin/dashboard');
-        } elseif ($role === 'user') {
-            return redirect()->intended('/user/dashboard');
-        } elseif ($role === 'organizer') {
-            return redirect()->intended('/organizer/dashboard');
-        }
 
-        return redirect('/');
+        return back()->withErrors(['loginError' => 'Login failed!']);
     }
+
+
 
     public function logout(Request $request)
     {

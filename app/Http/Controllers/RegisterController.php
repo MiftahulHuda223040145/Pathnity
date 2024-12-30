@@ -40,7 +40,7 @@ class RegisterController extends Controller
             'organization_name' => 'required|max:255',
             'username' => 'nullable|string||max:255',
             'phone_number' => 'required|digits_between:10,15',
-            'position' => 'required|in:manager,hrd,admin',
+            'position' => 'required|in:Manager,HRD,Admin',
             'website' => 'required|',
             'tax_id' => 'nullable|string',
             'province' => 'required|string',

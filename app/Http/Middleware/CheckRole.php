@@ -7,17 +7,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
+
+
 class CheckRole
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle($request, Closure $next, $role): Response
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (Auth::user()->role != $role) {
-            return redirect('/'); // Gagal jika role tidak sesuai
+        // Cek apakah pengguna sudah login
+        if (!Auth::check()) {
+            return redirect()->route('login'); 
+        }
+
+        // Cek apakah pengguna memiliki peran yang sesuai (0=admin, 1=organizer, 2=user)
+        if (!in_array(Auth::user()->role, $roles)) {
+            return redirect('/home');  
         }
 
         return $next($request);

@@ -39,7 +39,7 @@ $avatarUrl = $avatarPath && file_exists(public_path($avatarPath)) ? asset($avata
                         <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
                             Name</label>
                         <input type="text" name="last_name" id="last_name"
-                            value="{{ old('first_name', auth('web')->user()->last_name ?? '') }}"
+                            value="{{ old('last_name', auth('web')->user()->last_name ?? '') }}"
                             class="w-full border-gray-300 border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
                         @error('last_name')
                             <p class="mt-2 text-pink-600 text-sm">{{ $message }}</p>

@@ -9,18 +9,19 @@
 
         <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <!-- User Profile -->
-            @auth
+            @auth('web')
                 <?php
-                $avatarPath = auth('web')->user()->avatar;
-                $avatarUrl = $avatarPath && file_exists(public_path($avatarPath)) ? asset($avatarPath) : asset('/img/profile/avatar_default.png');
+                $user = auth('web')->user();
+                $avatarUrl = filter_var($user->avatar, FILTER_VALIDATE_URL) ? $user->avatar : (file_exists(public_path($user->avatar)) ? asset($user->avatar) : asset('/img/profile/avatar_default.png'));
                 ?>
+
+
                 <button type="button"
                     class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                     data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
                     <img class="w-8 h-8 rounded-full" src="{{ $avatarUrl }}" alt="user photo">
-
                 </button>
 
                 <!-- Dropdown menu -->
@@ -33,16 +34,57 @@
                             class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ auth('web')->user()->email }}</span>
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                        <li><a href="/profile"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
                         </li>
-                        <li>
-                            <a href="/setting"
+                        <li><a href="/setting"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
                         </li>
+                        {{-- <li><a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                        </li> --}}
                         <li>
-                            <a href="#"
+                            <form action="/logout" method="POST"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                @csrf
+                                <button>Sign out</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            @endauth
+
+            @auth('organizer')
+                <?php
+                $organizer = auth('organizer')->user();
+                $avatarUrl = $organizer && $organizer->avatar && file_exists(public_path($organizer->avatar)) ? asset($organizer->avatar) : asset('/img/profile/avatar_default.png');
+                ?>
+
+                <button type="button"
+                    class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                    id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                    data-dropdown-placement="bottom">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="w-8 h-8 rounded-full" src="{{ $avatarUrl }}" alt="user photo">
+                </button>
+
+                <!-- Dropdown menu -->
+                <div class="z-40 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                    id="user-dropdown">
+                    <div class="px-4 py-3">
+                        <span
+                            class="block text-sm text-gray-900 dark:text-white">{{ auth('organizer')->user()->organization_name }}</span>
+                        <span
+                            class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ auth('organizer')->user()->email }}</span>
+                    </div>
+                    <ul class="py-2" aria-labelledby="user-menu-button">
+                        <li><a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                        </li>
+                        <li><a href="/settingOrg"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                        </li>
+                        <li><a href="#"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
                         </li>
                         <li>
@@ -54,12 +96,14 @@
                         </li>
                     </ul>
                 </div>
-            @else
+            @endauth
+
+            @if (!auth('web')->check() && !auth('organizer')->check())
                 <a href="/login"
                     class="text-white text-sm font-medium hover:text-orange-300 {{ request()->is('login') ? 'text-[#FFA629]' : 'text-white hover:text-[#FFA629]' }}">
                     SignIn/SignUp
                 </a>
-            @endauth
+            @endif
 
             <button data-collapse-toggle="navbar-user" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
