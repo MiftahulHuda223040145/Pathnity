@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->string('image')->nullable(); // Menambahkan kolom image
+             $table->text('description')->nullable();
+    
         });
     }
 
@@ -22,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->dropColumn('image'); // Menghapus kolom image
+            $table->dropColumn('description');
         });
     }
 };

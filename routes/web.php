@@ -132,3 +132,50 @@ Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->na
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::resource('blogs', Blogcontroller::class);
 Route::resource('vancavies',VancaviesController::class);
+
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+
+Route::get('/create-slug', function (Request $request) {
+    $title = $request->query('title');
+    return response()->json([
+        'slug' => Str::slug($title)
+    ]);
+});
+
+Route::get('/create-slug', [BlogController::class, 'checkSlug'])->name('blogs.checkSlug');
+
+
+//route dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard.dashboard');
+});
+
+Route::get('/dashboard/users', function () {
+    return view('dashboard.users.users');
+});
+
+Route::get('/dashboard/create-user', function () {
+    return view('dashboard.users.create-user');
+});
+
+Route::get('/dashboard/organizer', function () {
+    return view('dashboard.organizer.organizer');
+});
+
+Route::get('/dashboard/vacancies', function () {
+    return view('dashboard.vacancies.vacancies');
+});
+
+Route::get('/dashboard/detail-vacancy', function () {
+    return view('dashboard.vacancies.detail-vacancy');
+});
+
+
+Route::get('/dashboard/create-blog', function () {
+    return view('dashboard.blog.create-blog');
+});
+
+Route::get('/dashboard/detail-blog', function () {
+    return view('dashboard.blog.detail-blog');
+});
