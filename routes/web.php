@@ -172,6 +172,10 @@ Route::get('/dashboard/detail-vacancy', function () {
     return view('dashboard.vacancies.detail-vacancy');
 });
 
+Route::get('/dashboard/create-vacancy', function () {
+    return view('dashboard.vacancies.create-vacancy');
+});
+
 
 Route::get('/dashboard/create-blog', function () {
     return view('dashboard.blog.create-blog');

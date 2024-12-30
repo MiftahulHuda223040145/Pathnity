@@ -11,7 +11,7 @@
                         <h3 class="text-lg font-semibold">Fullstack Developer</h3>
                         <p class="text-gray-600">PT.Pertamina</p>
                         <p class="text-gray-600">Jakarta, Indonesia</p>
-                        <span class="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-900 dark:text-gray-300">Category</span>
+                        <span class="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-900 dark:text-gray-300">Type</span>
                         <p class="text-gray-600">12.000.000</p>
                     </div>
                 </div>
