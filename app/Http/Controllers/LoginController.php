@@ -25,7 +25,6 @@ class LoginController extends Controller
             return redirect()->intended('/');
         } elseif ($organizer && Auth::guard('organizer')->attempt($credentials)) {
             $request->session()->regenerate();
-            // dd(Auth::guard('web')->check(), Auth::guard('organizer')->check(), Auth::user());
             return redirect()->intended('/');
         }
 

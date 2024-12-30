@@ -1,3 +1,7 @@
+<?php
+$user = auth('web')->user();
+$avatarUrl = filter_var($user->avatar, FILTER_VALIDATE_URL) ? $user->avatar : (file_exists(public_path($user->avatar)) ? asset($user->avatar) : asset('/img/profile/avatar_default.png'));
+?>
 <x-layout>
     @if (session()->has('success'))
         <div id="notification"
