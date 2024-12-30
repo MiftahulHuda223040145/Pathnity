@@ -197,36 +197,41 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/dashboard/users', [AdminController::class, 'index'])->name('admin.user.dashboard');
     Route::get('users/search', [AdminController::class, 'search'])->name('users.search');
     Route::get('dashboard/users/{id}', [AdminController::class, 'show'])->name('users.show');
-    Route::get('dashboard/users/{id}/edit', [AdminController::class, 'edit'])->name('users.edit'); 
-    Route::delete('dashboard/users/{id}', [AdminController::class, 'destroy'])->name('users.destroy'); 
-});
+    Route::get('dashboard/users/{id}/edit', [AdminController::class, 'edit'])->name('users.edit');
+    Route::delete('dashboard/users/{id}', [AdminController::class, 'destroy'])->name('users.destroy');
+
+    Route::get('/dashboard/create-user', function () {
+        return view('dashboard.users.create-user');
+    });
+
+    Route::get('dashboard/organizer', [AdminController::class, 'indexOrg'])->name('dashboard.organizer.organizer');
+    Route::get('dashboard/organizer/{id}', [AdminController::class, 'showOrganizer'])->name('organizer.show');
+    Route::get('dashboard/organizer/{id}/edit', [AdminController::class, 'editOrganizer'])->name('organizer.edit');
+    Route::delete('dashboard/organizer/{id}', [AdminController::class, 'destroyOrganizer'])->name('organizer.destroy');
+    Route::get('organizer/search', [AdminController::class, 'searchOrganizer'])->name('organizer.search');
 
 
-Route::get('/dashboard/create-user', function () {
-    return view('dashboard.users.create-user');
-});
-
-Route::get('/dashboard/organizer', function () {
-    return view('dashboard.organizer.organizer');
-});
-
-Route::get('/dashboard/vacancies', function () {
-    return view('dashboard.vacancies.vacancies');
-});
-
-Route::get('/dashboard/detail-vacancy', function () {
-    return view('dashboard.vacancies.detail-vacancy');
-});
 
 
-Route::get('/dashboard/create-blog', function () {
-    return view('dashboard.blog.create-blog');
-});
 
-Route::get('/dashboard/detail-blog', function () {
-    return view('dashboard.blog.detail-blog');
-});
+    Route::get('/dashboard/vacancies', function () {
+        return view('dashboard.vacancies.vacancies');
+    });
 
-Route::get('/dashboard/blogs', function () {
-    return view('dashboard.blog.blogs');
+    Route::get('/dashboard/detail-vacancy', function () {
+        return view('dashboard.vacancies.detail-vacancy');
+    });
+
+
+    Route::get('/dashboard/create-blog', function () {
+        return view('dashboard.blog.create-blog');
+    });
+
+    Route::get('/dashboard/detail-blog', function () {
+        return view('dashboard.blog.detail-blog');
+    });
+
+    Route::get('/dashboard/blogs', function () {
+        return view('dashboard.blog.blogs');
+    });
 });
