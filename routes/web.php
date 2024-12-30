@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -185,6 +186,47 @@ Route::get('/accept-employe', function () {
     return view('accept-employe');
 });
 
-Route::get('/accept-interview', function () {
-    return view('accept-interview');
+Route::get('/interview', function () {
+    return view('interview');
+});
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard.dashboard');
+    })->middleware(['admin']);
+    Route::get('/dashboard/users', [AdminController::class, 'index'])->name('admin.user.dashboard');
+    Route::get('users/search', [AdminController::class, 'search'])->name('users.search');
+    Route::get('dashboard/users/{id}', [AdminController::class, 'show'])->name('users.show');
+    Route::get('dashboard/users/{id}/edit', [AdminController::class, 'edit'])->name('users.edit'); 
+    Route::delete('dashboard/users/{id}', [AdminController::class, 'destroy'])->name('users.destroy'); 
+});
+
+
+Route::get('/dashboard/create-user', function () {
+    return view('dashboard.users.create-user');
+});
+
+Route::get('/dashboard/organizer', function () {
+    return view('dashboard.organizer.organizer');
+});
+
+Route::get('/dashboard/vacancies', function () {
+    return view('dashboard.vacancies.vacancies');
+});
+
+Route::get('/dashboard/detail-vacancy', function () {
+    return view('dashboard.vacancies.detail-vacancy');
+});
+
+
+Route::get('/dashboard/create-blog', function () {
+    return view('dashboard.blog.create-blog');
+});
+
+Route::get('/dashboard/detail-blog', function () {
+    return view('dashboard.blog.detail-blog');
+});
+
+Route::get('/dashboard/blogs', function () {
+    return view('dashboard.blog.blogs');
 });

@@ -24,6 +24,7 @@
     <script src="{{ asset('js/upload-modal.js') }}" defer></script>
     <script src="{{ asset('js/toggle-password.js') }}"></script>
     <script src="{{ asset('js/edit-form.js') }}"></script>
+    <script src="{{ asset('js/accemploye.js') }}"></script>
     <script src="{{ asset('js/fetchLocation.js') }}"></script>
 
 </body>
