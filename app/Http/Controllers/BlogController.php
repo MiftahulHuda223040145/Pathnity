@@ -7,47 +7,44 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class BlogController extends Controller
 {
-    // Menampilkan daftar blog
+    
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::paginate(20);
         return view('blog.index', compact('blogs'));
     }
 
-    // Menampilkan form untuk membuat blog baru
+
     public function create()
     {
-        return view('blog.create', [
-            'categories' => Category::all(), // Mengambil semua kategori
-        ]);
+        $categories =Category::all();
+        return view('dashboard.blog.create-blog', compact('categories'));
     }
 
-    // Menyimpan blog baru
+   
     public function store(Request $request)
     {
-        $request->validate([
+       $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'required|string|unique:blogs,slug|max:255',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'description' => 'nullable|string',
-            'category' => 'required|exists:categories,id', // Validasi kategori yang dipilih
+            'category_id' => 'required|exists:categories,id', // Validasi kategori_id yang dipilih
         ]);
 
-        $blog = new Blog();
-        $blog->title = $request->title;
-        $blog->slug = $request->slug;
-        $blog->description = $request->description;
-        $blog->category_id = $request->category; // Menyimpan ID kategori yang dipilih
 
-        if ($request->hasFile('image')) {
-            $blog->image = $request->file('image')->store('blogs', 'public');
+
+        if ($request->file('image')) {
+           $validatedData ['image'] = $request->file('image')->store('blogs','public');
         }
 
-        $blog->save();
+       Blog::create($validatedData);
 
         return redirect()->route('blogs.index')->with('success', 'Blog berhasil dibuat!');
     }
@@ -75,7 +72,7 @@ class BlogController extends Controller
             'slug' => 'required|string|unique:blogs,slug,' . $blog->id,
             'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
             'description' => 'nullable|string',
-            'category' => 'required|exists:categories,id', // Validasi kategori yang dipilih
+            'category_id' => 'required|exists:categories,id', // Validasi kategori_id yang dipilih
         ]);
 
         if ($request->hasFile('image')) {
@@ -85,13 +82,12 @@ class BlogController extends Controller
             $validated['image'] = $request->file('image')->store('blogs', 'public');
         }
 
-        // Menyimpan ID kategori yang dipilih
         $blog->update([
             'title' => $request->title,
             'slug' => $request->slug,
             'description' => $request->description,
-            'category_id' => $request->category, // Menyimpan kategori
-            'image' => $validated['image'] ?? $blog->image, // Memperbarui gambar jika ada
+            'category_id' => $request->category_id,
+            'image' => $validated['image'] ?? $blog->image,
         ]);
 
         return redirect()->route('blogs.index')->with('success', 'Blog berhasil diperbarui!');
@@ -109,10 +105,10 @@ class BlogController extends Controller
         return redirect()->route('blogs.index')->with('success', 'Blog berhasil dihapus!');
     }
 
-    // Membuat slug otomatis berdasarkan judul
+    
     public function checkSlug(Request $request)
     {
-        $slug = Str::slug($request->title);
+        $slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
 }

@@ -135,16 +135,7 @@ Route::resource('vancavies',VancaviesController::class);
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-
-Route::get('/create-slug', function (Request $request) {
-    $title = $request->query('title');
-    return response()->json([
-        'slug' => Str::slug($title)
-    ]);
-});
-
-Route::get('/create-slug', [BlogController::class, 'checkSlug'])->name('blogs.checkSlug');
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 //route dashboard
 Route::get('/dashboard', function () {
@@ -179,3 +170,13 @@ Route::get('/dashboard/create-blog', function () {
 Route::get('/dashboard/detail-blog', function () {
     return view('dashboard.blog.detail-blog');
 });
+
+
+Route::get('/dashboard/create-blog',[Blogcontroller::class,'create']);
+
+Route::get('blogs/create', [BlogController::class, 'create'])->name('blogs.create');
+Route::post('blogs', [BlogController::class, 'store'])->name('blogs.store');
+Route::get('/dashboard/Blog/checkSlug', [BlogController::class, 'checkSlug'])->name('blogs.checkSlug');
+Route::get('/dashboard/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/dashboard/blogs/{blog}/edit', [BlogController::class, 'edit'])->name('blogs.edit');
+Route::put('/dashboard/blogs/{blog}', [BlogController::class, 'update'])->name('blogs.update');
