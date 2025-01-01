@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     $jobs = [
@@ -148,47 +152,6 @@ Route::get('/career', function () {
     return view('career.career');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-});
-
-Route::get('/dashboard/users', function () {
-    return view('dashboard.users.users');
-});
-
-Route::get('/dashboard/create-user', function () {
-    return view('dashboard.users.create-user');
-});
-
-Route::get('/dashboard/organizer', function () {
-    return view('dashboard.organizer.organizer');
-});
-
-Route::get('/dashboard/vacancies', function () {
-    return view('dashboard.vacancies.vacancies');
-});
-
-Route::get('/dashboard/detail-vacancy', function () {
-    return view('dashboard.vacancies.detail-vacancy');
-});
-
-Route::get('/dashboard/create-vacancy', function () {
-    return view('dashboard.vacancies.create-vacancy');
-});
-
-
-Route::get('/dashboard/create-blog', function () {
-    return view('dashboard.blog.create-blog');
-});
-
-Route::get('/dashboard/detail-blog', function () {
-    return view('dashboard.blog.detail-blog');
-});
-
-Route::get('/dashboard/blogs', function () {
-    return view('dashboard.blog.blogs');
-});
-
 Route::get('/about', function () {
     return view('about.about');
 });
@@ -286,10 +249,6 @@ Route::middleware(['admin'])->group(function () {
     Route::delete('dashboard/organizer/{id}', [AdminController::class, 'destroyOrganizer'])->name('organizer.destroy');
     Route::get('organizer/search', [AdminController::class, 'searchOrganizer'])->name('organizer.search');
 
-
-
-
-
     Route::get('/dashboard/vacancies', function () {
         return view('dashboard.vacancies.vacancies');
     });
@@ -298,16 +257,17 @@ Route::middleware(['admin'])->group(function () {
         return view('dashboard.vacancies.detail-vacancy');
     });
 
-
-    Route::get('/dashboard/create-blog', function () {
-        return view('dashboard.blog.create-blog');
+    Route::get('/dashboard/detail-vacancy', function () {
+        return view('dashboard.vacancies.detail-vacancy');
     });
+    
+    Route::get('/dashboard/create-vacancy');
+
+    // Route::get('/dashboard/create-blog', [BlogController::class, 'create'])->name('dashboard.blog.create');
 
     Route::get('/dashboard/detail-blog', function () {
         return view('dashboard.blog.detail-blog');
     });
 
-    Route::get('/dashboard/blogs', function () {
-        return view('dashboard.blog.blogs');
-    });
+    Route::resource('/dashboard/blogs', BlogController::class);
 });
