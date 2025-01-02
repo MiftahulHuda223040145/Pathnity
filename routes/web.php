@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\OrganizerController;
 
 Route::get('/', function () {
     $jobs = [
@@ -270,4 +271,6 @@ Route::middleware(['admin'])->group(function () {
     });
 
     Route::resource('/dashboard/blogs', BlogController::class);
+
+    Route::get('/pdf-report', [OrganizerController::class, 'generatePdfReport'])->name('organizer.pdf-report');
 });
