@@ -2,27 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Organizer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function authenticate(Request $request){
+    public function authenticate(Request $request)
+    {
         $credentials = $request->validate([
-            'email' => 'required|email:dns',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
-        if(Auth::attempt($credentials)) {
+
+        // Periksa apakah email ada di tabel User atau Organizer
+        $user = User::where('email', $credentials['email'])->first();
+        $organizer = Organizer::where('email', $credentials['email'])->first();
+
+        if ($user && Auth::guard('web')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/');
+        } elseif ($organizer && Auth::guard('organizer')->attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
-        return back()->with('loginError', 'Login failed!');
 
+
+        return back()->withErrors(['loginError' => 'Login failed!']);
     }
-    public function logout() {
+
+
+
+    public function logout(Request $request)
+    {
         Auth::logout();
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect('/');
     }
 }

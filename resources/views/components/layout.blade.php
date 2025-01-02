@@ -18,5 +18,6 @@
     </main>
     <x-footer></x-footer>
     <script src="{{ asset('js/navbar.js') }}"></script>
+    <script src="{{ asset('js/fetchLocation.js') }}"></script>
 </body>
 </html>

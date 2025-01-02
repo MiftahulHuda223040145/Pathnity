@@ -23,7 +23,7 @@
 
     @if (session()->has('loginError'))
         <div id="notification"
-            class="relative isolate flex items-center gap-x-6 overflow-hidden px-6 py-2.5 sm:px-3.5 sm:before:flex-1 bg-red-700">
+            class="relative isolate flex items-center gap-x-6 overflow-hidden px-6 py-2.5 sm:px-3.5 sm:before:flex-1 bg-red-700 mt-20 w-full max-w-screen-lg mx-auto">
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <p class="text-sm/6 text-white">
                     <strong class="font-semibold">{{ session('loginError') }}</strong>
