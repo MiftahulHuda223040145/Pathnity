@@ -84,10 +84,6 @@
                                         <span
                                             class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Detail</span>
                                     </a>
-                                    <a href="{{ route('organizer.edit', $organizer->id) }}" class="font-medium">
-                                        <span
-                                            class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Edit</span>
-                                    </a>
                                     <form action="{{ route('organizer.destroy', $organizer->id) }}" method="POST"
                                         class="inline">
                                         @csrf

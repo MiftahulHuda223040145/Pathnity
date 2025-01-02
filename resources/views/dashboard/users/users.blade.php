@@ -54,8 +54,6 @@
                                     <td class="px-6 py-4">
                                         <a href="{{ route('users.show', $user->id) }}"
                                             class="font-medium text-blue-600 hover:underline">Detail</a>
-                                        <a href="{{ route('users.edit', $user->id) }}"
-                                            class="font-medium text-yellow-600 hover:underline">Edit</a>
                                         <form action="{{ route('users.destroy', $user->id) }}" method="POST"
                                             class="inline">
                                             @csrf
