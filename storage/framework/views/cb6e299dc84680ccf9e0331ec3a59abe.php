@@ -55,5 +55,6 @@
 <?php unset($__componentOriginal8a8716efb3c62a45938aca52e78e0322); ?>
 <?php endif; ?>
     <script src="<?php echo e(asset('js/navbar.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/fetchLocation.js')); ?>"></script>
 </body>
 </html><?php /**PATH D:\Laragon\www\PathnityTechonnect\resources\views/components/layout.blade.php ENDPATH**/ ?>
