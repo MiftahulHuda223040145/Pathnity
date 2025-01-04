@@ -8,19 +8,19 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Blog extends Model
 {
-    use HasFactory,Sluggable;
-    protected $fillable = ['title', 'slug','image','category','description'];
+    use HasFactory, Sluggable;
+    protected $fillable = ['title', 'slug','image', 'category_id', 'description'];
 
-    public function sluggable(): array{
+    public function sluggable(): array
+    {
         return [
-           'slug' => [
-               'source' => 'title'
-           ]
+            'slug' => [
+                'source' => 'title'
+            ]
         ];
     }
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
-
 }

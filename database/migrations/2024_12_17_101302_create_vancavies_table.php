@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('vancavies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
+            $table->text('category');
             $table->string('image')->nullable();
             $table->timestamps();
         });

@@ -9,5 +9,10 @@ class Category extends Model
 {
     use HasFactory;
 
-    // Tambahkan relasi atau logika kustom di sini jika diperlukan
+    protected $fillable = ['name'];
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
 }

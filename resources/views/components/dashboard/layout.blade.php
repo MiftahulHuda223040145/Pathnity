@@ -17,6 +17,7 @@
     <main>
         {{$slot}}
     </main>
+    
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script>
         document.addEventListener('trix-file-accept', function(e) {

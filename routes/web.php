@@ -91,7 +91,7 @@ Route::get('/', function () {
         'gas.png',
         'tea.png',
     ];
-    
+
 
     return view('home', compact('jobs', 'volunteers', 'logos'));
 });
@@ -130,12 +130,6 @@ Route::get('/career', function () {
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
 Route::get('{provider}/callback/', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout']);
-Route::resource('blogs', Blogcontroller::class);
-Route::resource('vancavies',VancaviesController::class);
-
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 //route dashboard
 Route::get('/dashboard', function () {
@@ -162,21 +156,11 @@ Route::get('/dashboard/detail-vacancy', function () {
     return view('dashboard.vacancies.detail-vacancy');
 });
 
-
-Route::get('/dashboard/create-blog', function () {
-    return view('dashboard.blog.create-blog');
-});
-
-Route::get('/dashboard/detail-blog', function () {
-    return view('dashboard.blog.detail-blog');
-});
-
-
-Route::get('/dashboard/create-blog',[Blogcontroller::class,'create']);
-
-Route::get('blogs/create', [BlogController::class, 'create'])->name('blogs.create');
-Route::post('blogs', [BlogController::class, 'store'])->name('blogs.store');
+Route::get('/dashboard/create-blog', [Blogcontroller::class, 'create'])->name('create.blog');
+Route::post('/dashboard/create-blog', [Blogcontroller::class, 'store'])->name('create.store');
 Route::get('/dashboard/Blog/checkSlug', [BlogController::class, 'checkSlug'])->name('blogs.checkSlug');
 Route::get('/dashboard/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/dashboard/detail-blog/{blog}', [BlogController::class, 'show'])->name('blogs.detail');
 Route::get('/dashboard/blogs/{blog}/edit', [BlogController::class, 'edit'])->name('blogs.edit');
 Route::put('/dashboard/blogs/{blog}', [BlogController::class, 'update'])->name('blogs.update');
+Route::delete('/dashboard/blogs/{blog}', [BlogController::class, 'destroy'])->name('blogs.destroy');
