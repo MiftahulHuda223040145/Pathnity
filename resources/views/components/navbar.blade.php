@@ -1,4 +1,4 @@
-<nav id="navbar" class="fixed top-0 left-0 w-full {{ request()->is('search') ? 'bg-primaryDark shadow-lg' : 'bg-transparent' }}">
+<nav id="navbar" class="fixed top-0 left-0 w-full {{ request()->is('search') ? 'bg-primary shadow-lg' : 'bg-transparent' }}">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
   <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="img/logo/logo.png" class="h-8" alt="Pathnity Logo" />

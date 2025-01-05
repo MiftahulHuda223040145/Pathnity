@@ -20,7 +20,7 @@ class AdminController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id); // Cari user berdasarkan ID
-        return view('dashboard.users.show', compact('user')); // Tampilkan halaman detail
+        return view('dashboard.users.detail-user', compact('user')); // Tampilkan halaman detail
     }
     public function edit($id)
     {
@@ -60,7 +60,6 @@ class AdminController extends Controller
         // Kirim data organizer ke view
         return view('dashboard.organizer.organizer', compact('organizers'));
     }
-
     public function showOrganizer($id)
     {
         // Cari organizer berdasarkan ID
@@ -69,7 +68,6 @@ class AdminController extends Controller
         // Tampilkan halaman detail dengan data organizer
         return view('dashboard.organizer.show', compact('organizer'));
     }
-
     public function editOrganizer($id)
     {
         // Cari organizer berdasarkan ID
@@ -78,7 +76,6 @@ class AdminController extends Controller
         // Tampilkan halaman edit dengan data organizer
         return view('dashboard.organizer.edit', compact('organizer'));
     }
-
     public function destroyOrganizer($id)
     {
         // Cari organizer berdasarkan ID
@@ -110,97 +107,5 @@ class AdminController extends Controller
         return response()->json([
             'organizers' => $organizers
         ]);
-    }
-
-    public function indexBlog()
-    {
-        $blogs = Blog::all();
-        return view('dashboard.blog.blogs', compact('blogs'));
-    }
-
-    public function createBlog()
-    {
-        return view('dashboard.blog.create-blog',
-        [
-            'categories' => Category::all()
-        ]);
-    }
-
-    public function storeBlog(Request $request)
-    {
-        $validatedData = $request->validate([
-            'title' => 'required|max:255',
-            'author' => 'required|max:50',
-            'slug' => 'required|unique:blogs',
-            'category_id' => 'required',
-            'image' => 'image|file|max:1024',
-            'body' => 'required'
-        ]);
-    
-        if($request->file('image')) {
-            $validatedData['image'] = $request->file('image')->store('post-images');
-        }
-
-        $allowedTags = '<p><a><strong><b><em><i><ul><li><ol><h1><quote><div><br><del><pre>';
-        $validatedData['author_id'] = auth()->user()->id;
-        $validatedData['body'] = strip_tags($request->body, $allowedTags);
-
-        Blog::create($validatedData);
-
-        return redirect('/dashboard/blogs')->with('success', 'New post has been added!');
-    }
-
-    public function showBlog(Blog $blog)
-    {
-        return view('dashboard.blog.detail-blog', 
-            ['blog' => $blog]);
-    }
-
-    public function editBlog(Blog $blog)
-    {
-        return view('dashboard.blog.edit-blog',
-            [ 
-                'blog' => $blog,
-                'categories' => Category::all()
-            ]);
-    }
-
-    public function updateBlog(Request $request, Blog $blog)
-    {
-        $rules = [
-            'title' => 'required|max:255',
-            'author' => 'required|max:50',
-            'slug' => 'required|unique:posts',
-            'category_id' => 'required',
-            'image' => 'image|file|max:1024',
-            'body' => 'required'
-        ];
-
-        if($request->file('image')) {
-            $validatedData['image'] = $request->file('image')->store('post-images');
-        }
-
-        $allowedTags = '<p><a><strong><b><em><i><ul><li><ol><h1><quote><div><br><del><pre>';
-        $validatedData['author_id'] = auth()->user()->id;
-        $validatedData['body'] = strip_tags($request->body, $allowedTags);
-
-        Blog::create($validatedData);
-
-        return redirect('/dashboard/blogs')->with('success', 'New post has been added!');
-    }
-
-    public function destroyBlog(Blog $blog)
-    {
-        if ($blog->image) {
-            Storage::delete($blog->image);
-        }
-
-        Blog::destroy($Blog->id);
-        return redirect('/dashboard/blogs')->with('success', 'Post has been deleted!');
-    }
-
-    public function checkSlug(Request $request) {
-        $slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
-        return response()->json(['slug' => $slug]);
     }
 }

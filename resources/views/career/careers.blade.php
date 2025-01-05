@@ -1,6 +1,4 @@
 <x-layout>
-
-
     <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">My Career</h1>
     <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
         <div class="container mx-auto my-5">

@@ -56,5 +56,6 @@
 <?php endif; ?>
     <script src="<?php echo e(asset('js/navbar.js')); ?>"></script>
     <script src="<?php echo e(asset('js/fetchLocation.js')); ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </body>
 </html><?php /**PATH D:\Laragon\www\PathnityTechonnect\resources\views/components/layout.blade.php ENDPATH**/ ?>

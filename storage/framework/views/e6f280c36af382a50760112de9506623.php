@@ -38,17 +38,31 @@
                 <div class="container mx-auto mt-5">
                     <div class="grid grid-cols-1 gap-4">
                         <?php $__currentLoopData = $jobs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $job): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <a href="">
                             <div class="bg-white rounded-lg shadow-md p-4 border border-gray-300 h-48 w-full flex items-center gap-4">
-                                <img src="<?php echo e($job['logo']); ?>" alt="Company Logo" class="h-12 w-12 mb-14">
+                                <a href="">
+                                    <img src="<?php echo e($job['logo']); ?>" alt="Company Logo" class="h-12 w-12 mb-14">
+                                </a>
                                 <div>
-                                    <h3 class="text-lg font-semibold"><?php echo e($job['title']); ?></h3>
-                                    <p class="text-gray-600"><?php echo e($job['company_name']); ?></p>
-                                    <p class="text-gray-600"><?php echo e($job['location']); ?></p>
-                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded"><?php echo e($job['status']); ?></span>
-                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
+                                    <a href="">
+                                        <h3 class="text-lg font-semibold"><?php echo e($job['title']); ?></h3>
+                                    </a>    
+                                    <a href="">
+                                        <p class="text-gray-600"><?php echo e($job['company_name']); ?></p>
+                                    </a>
+                                    <a href="">
+                                        <p class="text-gray-600"><?php echo e($job['location']); ?></p>
+                                    </a>
+                                    <a href="">
+                                        <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded"><?php echo e($job['status']); ?></span>
+                                    </a>
+                                    <a href="">
+                                        <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
+                                    </a>
                                     <p class="text-gray-600">Gaji: Rp <?php echo e(number_format($job['salary'], 0, ',', '.')); ?></p>
                                 </div>
                             </div>
+                        </a>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
@@ -61,17 +75,31 @@
                 <div class="container mx-auto mt-5">
                     <div class="grid grid-cols-1 gap-4">
                         <?php $__currentLoopData = $volunteers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $volunteer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="bg-white rounded-lg shadow-md p-4 border border-gray-300 h-48 w-full flex items-center gap-4">
-                            <img src="<?php echo e($volunteer['logo']); ?>" alt="Company Logo" class="h-12 w-12 mb-14">
-                            <div>
-                                <h3 class="text-lg font-semibold"><?php echo e($volunteer['title']); ?></h3>
-                                <p class="text-gray-600"><?php echo e($volunteer['organization'] ?: 'Tidak disebutkan'); ?></p>
-                                <p class="text-gray-600"><?php echo e($volunteer['location']); ?></p>
-                                <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
-                                    <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
-                                <p class="text-gray-600">Tanggal: <?php echo e($volunteer['date']); ?></p>
+                        <a href="">
+                            <div class="bg-white rounded-lg shadow-md p-4 border border-gray-300 h-48 w-full flex items-center gap-4">
+                                <a href="">
+                                    <img src="<?php echo e($volunteer['logo']); ?>" alt="Company Logo" class="h-12 w-12 mb-14">
+                                </a>
+                                <div>
+                                    <a href="">
+                                        <h3 class="text-lg font-semibold"><?php echo e($volunteer['title']); ?></h3>
+                                    </a>
+                                    <a href="">
+                                        <p class="text-gray-600"><?php echo e($volunteer['organization'] ?: 'Tidak disebutkan'); ?></p>
+                                    </a>
+                                    <a href="">
+                                        <p class="text-gray-600"><?php echo e($volunteer['location']); ?></p>
+                                    </a>
+                                    <a href="">
+                                        <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
+                                    </a>
+                                    <a href="">
+                                        <span class="bg-gray-200 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">Type</span>
+                                    </a>
+                                    <p class="text-gray-600">Tanggal: <?php echo e($volunteer['date']); ?></p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
@@ -91,44 +119,27 @@
     
     </div>
 
-    <div class="bg-[#241365] mt-11">
+    <div class="bg-[#0A3981] mt-11">
         <div class="container mx-auto py-8">
             <h1 class="text-4xl font-bold text-white py-4 text-left ml-10">Blog</h1>
-            <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 ml-5 place-items-center h-auto max-w-full">
-            <!-- Card 1 -->
-            <div class="p-4 bg-white rounded-lg shadow-md h-62 w-60">
-                <a href="/login" >  <img src="img/blog/career.png" alt="career" class="mb-4 rounded max-w-full">
-                <p class="font-semibold text-center">Explore Career Opportunities</p>
-                </a>
-                <p class="text-sm text-gray-400 text-center">Sugeng, 56 menit</p>
-            </div>
-        
-            <!-- Card 2 -->
-            <div class="p-4 bg-white rounded-lg shadow-md h-62 w-60">
-                <a href="/login" > <img src="img/blog/search-job.png" alt="Gambar 2" class="mb-4 rounded max-w-full">
-                <p class="font-semibold text-center">Job Search: Tips & Tricks</p>
-                </a>
-                <p class="text-sm text-gray-400 text-center">Sugeng, 56 menit</p>
-            </div>
-        
-            <!-- Card 3 -->
-            <div class="p-4 bg-white rounded-lg shadow-md h-62 w-60">
-               <a href="/login" ><img src="img/blog/career1.png" alt="Gambar 3" class="mb-4 rounded max-w-full">
-                <p class="font-semibold text-center">Advance Your Career with Us</p>
-               </a>
-                <p class="text-sm text-gray-400 text-center">Sugeng, 56 menit</p>
-            </div>
-        
-            <!-- Card 4 -->
-            <div class="p-4 bg-white rounded-lg shadow-md h-62 w-60">
-                <a href="/login" ><img src="img/blog/btc.png" alt="Gambar 4" class="mb-4 rounded max-w-full">
-                <p class="font-semibold text-center">Bitcoin: Opportunities in Tech</p>
-                </a>
-                <p class="text-sm text-gray-400 text-center">Sugeng, 56 menit</p>
-            </div>
-        </div>
-        
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 place-items-center h-auto max-w-full">  
+                <?php for($i = 0; $i < 4; $i++): ?>
+                <div class="p-4">  
+                    <a href="/blog">
+                        <img src="https://via.placeholder.com/1000x800" alt="Gambar 1" class="mb-2">  
+                    </a> 
+                    <a href="">
+                        <span class="bg-yellow-100 text-yellow-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Category</span>
+                    </a>
+                    <a href="">
+                        <p class="text-white">Lorem ipsum lorem lorem.</p>  
+                    </a>
+                    <a href="">
+                        <p class="text-sm text-gray-300">Sugeng, 56 menit</p>  
+                    </a>
+                </div> 
+                <?php endfor; ?>
+            </div>  
         </div>
     </div>
  <?php echo $__env->renderComponent(); ?>

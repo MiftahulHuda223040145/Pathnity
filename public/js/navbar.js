@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 50) {
                 navbar.classList.remove("bg-transparent");
-                navbar.classList.add("bg-[#241365]", "shadow-lg");
+                navbar.classList.add("bg-[#0A3981]", "shadow-lg");
             } else {
-                navbar.classList.remove("bg-[#241365]", "shadow-lg");
+                navbar.classList.remove("bg-[#0A3981]", "shadow-lg");
                 navbar.classList.add("bg-transparent");
             }
         });
     } else {
         navbar.classList.remove("bg-transparent");
-        navbar.classList.add("bg-[#241365]", "shadow-lg");
+        navbar.classList.add("bg-[#0A3981]", "shadow-lg");
     }
 });
