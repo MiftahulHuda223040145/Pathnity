@@ -17,12 +17,9 @@ return new class extends Migration
             $table->string('author');
             $table->string('slug')->unique();
             $table->string('image')->nullable();
+            $table->foreignId('category_id')->constrained('categories', 'id');
+            $table->text('description')->nullable();
             $table->timestamps();
-            $table->foreignId('category_id')->constrained(
-                table: 'categories',
-                indexName: 'post_category_id'
-            );
-            $table->text('body');
         });
     }
 

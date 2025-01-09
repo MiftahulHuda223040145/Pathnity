@@ -137,7 +137,6 @@
     
     <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">Worker</h1>
     <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
-        <!-- Karyawan Pending Section -->
         <div class="overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark-mode:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark-mode:bg-gray-700 dark-mode:text-gray-400">
@@ -156,6 +155,12 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Profil
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Position
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Access
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Aksi
@@ -179,12 +184,30 @@
                         <td class="px-6 py-4">
                             <a href="https://example.com/cv/john_doe.pdf" target="_blank" class="text-blue-500 hover:underline">Lihat Profil</a>  <!-- Ganti dengan URL CV dari backend -->
                         </td>
+                        <td class="px-6 py-4">
+                            Fullstack Developer
+                        </td>
+                        <td class="px-6 py-4">
+                            No
+                        </td>
                         <td class="px-6 py-4 flex space-x-2">
-                            <a href="/interview"> <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
-                            Interview
-                            </button></a> 
+                            <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Change Access<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                                </svg>
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div id="multi-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="multiLevelDropdownButton">
+                                <li>
+                                    <button class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yes</button>
+                                </li>
+                                <li>
+                                    <button class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">No</button>
+                                </li>
+                                </ul>
+                            </div>
                             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded reject-button" data-id="1">
-                                Reject
+                                Fired
                             </button>
                         </td>
                     </tr>
@@ -207,12 +230,30 @@
                         <td class="px-6 py-4">
                             <a href="https://example.com/cv/john_doe.pdf" target="_blank" class="text-blue-500 hover:underline">Lihat Profil</a>  <!-- Ganti dengan URL CV dari backend -->
                         </td>
+                        <td class="px-6 py-4">
+                            HR
+                        </td>
+                        <td class="px-6 py-4">
+                            Yes
+                        </td>
                         <td class="px-6 py-4 flex space-x-2">
-                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
-                                Interview
+                            <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Change Access<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                                </svg>
                             </button>
+                            <!-- Dropdown menu -->
+                            <div id="multi-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="multiLevelDropdownButton">
+                                <li>
+                                    <button class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yes</button>
+                                </li>
+                                <li>
+                                    <button class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">No</button>
+                                </li>
+                                </ul>
+                            </div>
                             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded reject-button" data-id="1">
-                                Reject
+                                Fired
                             </button>
                         </td>
                     </tr>
@@ -229,10 +270,10 @@
         </div>
     </div>
 
-    <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">Active Career</h1>
+    <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">Active Vacancies</h1>
     <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
-         <!-- Karyawan Pending Section -->
-         <div class="overflow-x-auto shadow-md sm:rounded-lg">
+        <!-- Karyawan Pending Section -->
+        <div class="overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark-mode:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark-mode:bg-gray-700 dark-mode:text-gray-400">
                     <tr>
@@ -262,29 +303,29 @@
                 <tbody>
                     <tr class="bg-white border-b dark-mode:bg-gray-800 dark-mode:border-gray-700">
                         <td class="px-6 py-4">
-                            Sugeng
+                            Human Resouches
                         </td>
                         <td class="px-6 py-4">
-                            Sugeng@example.com
+                            Social
                         </td>
                         <td class="px-6 py-4">
-                            Sugeng@example.com
+                            Fulltime
                         </td>
                         <td class="px-6 py-4">
-                            <a href="https://example.com/cv/john_doe.pdf" target="_blank" class="text-blue-500 hover:underline">Lihat CV</a>  <!-- Ganti dengan URL CV dari backend -->
+                            Rp. 12.000.000
                         </td>
                         <td class="px-6 py-4">
-                            Sugeng@example.com
+                            10
                         </td>
                         <td class="px-6 py-4">
-                            Sugeng@example.com
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, hic harum quas veniam error assumenda magnam repudiandae itaque dicta necessitatibus sapiente nesciunt eligendi voluptatem culpa. Distinctio tempore quidem accusantium ad.
                         </td>
                         <td class="px-6 py-4 flex space-x-2">
-                            <a href="/interview"> <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
-                            Interview
-                            </button></a> 
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
+                                Detail
+                            </button>
                             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded reject-button" data-id="1">
-                                Reject
+                                Delete
                             </button>
                         </td>
                     </tr>
@@ -293,29 +334,148 @@
                 <tbody>
                     <tr class="bg-white border-b dark-mode:bg-gray-800 dark-mode:border-gray-700">
                         <td class="px-6 py-4">
-                            PPN 12%
+                            FullStack Developer
                         </td>
                         <td class="px-6 py-4">
-                            CintaRakyat@example.com
+                            Technology
                         </td>
                         <td class="px-6 py-4">
-                            CintaRakyat@example.com
+                            Online, Fulltime
                         </td>
                         <td class="px-6 py-4">
-                            <a href="https://example.com/cv/john_doe.pdf" target="_blank" class="text-blue-500 hover:underline">Lihat CV</a>  <!-- Ganti dengan URL CV dari backend -->
+                            Rp. 22.000.000
                         </td>
                         <td class="px-6 py-4">
-                            CintaRakyat@example.com
+                            1
                         </td>
                         <td class="px-6 py-4">
-                            CintaRakyat@example.com
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, voluptatem pariatur minima id cumque recusandae itaque placeat labore quod nihil earum ipsum. Nobis id est, asperiores deleniti ad eveniet enim.
                         </td>
                         <td class="px-6 py-4 flex space-x-2">
                             <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
-                                Interview
+                                Detail
                             </button>
                             <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded reject-button" data-id="1">
-                                Reject
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Tambahkan baris lainnya di sini -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center">
+            <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 mt-5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 16 4-4-4-4m6 8 4-4-4-4"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">Waiting</h1>
+    <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
+        <!-- Karyawan Pending Section -->
+        <div class="overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500 dark-mode:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark-mode:bg-gray-700 dark-mode:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Title
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Category
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Salary
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Applicants
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Number Of Worker
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Description
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Aksi
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b dark-mode:bg-gray-800 dark-mode:border-gray-700">
+                        <td class="px-6 py-4">
+                            Human Resouches
+                        </td>
+                        <td class="px-6 py-4">
+                            Social
+                        </td>
+                        <td class="px-6 py-4">
+                            Fulltime
+                        </td>
+                        <td class="px-6 py-4">
+                            Rp. 12.000.000
+                        </td>
+                        <td class="px-6 py-4">
+                            20
+                        </td>
+                        <td class="px-6 py-4">
+                            10
+                        </td>
+                        <td class="px-6 py-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, hic harum quas veniam error assumenda magnam repudiandae itaque dicta necessitatibus sapiente nesciunt eligendi voluptatem culpa. Distinctio tempore quidem accusantium ad.
+                        </td>
+                        <td class="px-6 py-4 flex space-x-2">
+                            <button class="bg-[#FFA629] hover:bg-[#e59525] text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
+                                See Applicants
+                            </button>
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
+                                Move to Active
+                            </button>
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded reject-button" data-id="1">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Tambahkan baris lainnya di sini -->
+                </tbody>
+                <tbody>
+                    <tr class="bg-white border-b dark-mode:bg-gray-800 dark-mode:border-gray-700">
+                        <td class="px-6 py-4">
+                            FullStack Developer
+                        </td>
+                        <td class="px-6 py-4">
+                            Technology
+                        </td>
+                        <td class="px-6 py-4">
+                            Online, Fulltime
+                        </td>
+                        <td class="px-6 py-4">
+                            Rp. 22.000.000
+                        </td>
+                        <td class="px-6 py-4">
+                            10
+                        </td>
+                        <td class="px-6 py-4">
+                            1
+                        </td>
+                        <td class="px-6 py-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, voluptatem pariatur minima id cumque recusandae itaque placeat labore quod nihil earum ipsum. Nobis id est, asperiores deleniti ad eveniet enim.
+                        </td>
+                        <td class="px-6 py-4 flex space-x-2">
+                            <button class="bg-[#FFA629] hover:bg-[#e59525] text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
+                                See Applicants
+                            </button>
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded accept-button" data-id="1">
+                                Move to Active
+                            </button>
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded reject-button" data-id="1">
+                                Delete
                             </button>
                         </td>
                     </tr>
