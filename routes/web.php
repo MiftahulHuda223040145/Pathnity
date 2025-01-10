@@ -5,6 +5,7 @@ use App\Http\Controllers\Blogcontroller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\VacanciesController;
 use App\Http\Controllers\VancaviesController;
 
 
@@ -164,3 +165,11 @@ Route::get('/dashboard/detail-blog/{blog}', [BlogController::class, 'show'])->na
 Route::get('/dashboard/blogs/{blog}/edit', [BlogController::class, 'edit'])->name('blogs.edit');
 Route::put('/dashboard/blogs/{blog}', [BlogController::class, 'update'])->name('blogs.update');
 Route::delete('/dashboard/blogs/{blog}', [BlogController::class, 'destroy'])->name('blogs.destroy');
+
+Route::get('/dashboard/create-vacancy', [VacanciesController::class, 'create'])->name('create.vacancies');
+Route::post('/dashboard/create-vacancy', [VacanciesController::class, 'store'])->name('create.store');
+Route::get('/dashboard/vacancies', [VacanciesController::class, 'index'])->name('blogs.index');
+Route::get('/dashboard/detail-vacancy/{vacancies}', [VacanciesController::class, 'show'])->name('vacancies.detail');
+Route::get('/dashboard/vacancies/{vacancies}/edit', [VacanciesController::class, 'edit'])->name('vacancies.edit');
+Route::put('/dashboard/vacancies/{vacancies}', [VacanciesController::class, 'update'])->name('vacancies.update');
+Route::delete('/dashboard/vacancies/{vacancies}', [VacanciesController::class, 'destroy'])->name('vacancies.destroy');

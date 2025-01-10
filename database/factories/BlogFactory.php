@@ -20,6 +20,7 @@ class BlogFactory extends Factory
         return [
             'title' => fake()->text(20),
             'slug' => fake()->slug(),
+            'author' => fake()->author(),
             'image' => fake()->imageUrl(),
             'category_id' => Category::inRandomOrder()->first()->id,
             'description' => fake()->text(),

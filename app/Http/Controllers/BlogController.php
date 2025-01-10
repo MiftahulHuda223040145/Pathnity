@@ -39,6 +39,7 @@ class BlogController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'required|string|unique:blogs,slug|max:255',
+            'author' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'description' => 'nullable|string',
             'category_id' => 'required|exists:categories,id',
@@ -55,7 +56,7 @@ class BlogController extends Controller
         return redirect('/dashboard/blogs')->with('success', 'Blog berhasil dibuat!');
     }
 
-    // Menampilkan detail blog
+    
     public function show(Blog $blog)
     {
         $blogById = Blog::where('id', $blog->id)->first();
@@ -70,16 +71,17 @@ class BlogController extends Controller
         $blogById = Blog::where('id', $blog->id)->first();
         return view('dashboard.blog.edit', [
             'blog' => $blogById,
-            'categories' => Category::all(), // Mengambil semua kategori
+            'categories' => Category::all(), 
         ]);
     }
 
-    // Memperbarui blog yang sudah ada
+    
     public function update(Request $request, Blog $blog)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'required|string|unique:blogs,slug,' . $blog->id,
+            'author' => 'required|string|',
             'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
             'description' => 'nullable|string',
             'category_id' => 'required|exists:categories,id', // Validasi kategori_id yang dipilih
@@ -95,6 +97,7 @@ class BlogController extends Controller
         $blog->update([
             'title' => $request->title,
             'slug' => $request->slug,
+            'author' => $request->author,
             'description' => strip_tags($request->description),
             'category_id' => $request->category_id,
             'image' => $validated['image'] ?? $blog->image,
@@ -103,7 +106,7 @@ class BlogController extends Controller
         return redirect()->route('blogs.index')->with('success', 'Blog berhasil diperbarui!');
     }
 
-    // Menghapus blog
+    
     public function destroy(Blog $blog)
     {
         if ($blog->image) {

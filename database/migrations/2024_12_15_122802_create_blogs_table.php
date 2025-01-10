@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('author');
             $table->string('slug')->unique();
+            $table->string('author');
             $table->string('image')->nullable();
             $table->foreignId('category_id')->constrained('categories', 'id');
             $table->text('description')->nullable();

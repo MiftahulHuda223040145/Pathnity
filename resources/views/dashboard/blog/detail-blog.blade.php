@@ -17,6 +17,7 @@
                         <h1
                             class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
                             {{ $blog->title }}</h1>
+                            <h2>>{{ $blog->author}}</h2>
                         <p>{{ $blog->description }}</p>
                     </div>
                 </article>

@@ -24,6 +24,9 @@
                                 slug
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                author
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 image
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -49,6 +52,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $blog->slug }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $blog->author }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @if (Str::startsWith($blog->image, 'http'))

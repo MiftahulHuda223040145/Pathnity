@@ -9,7 +9,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Blog extends Model
 {
     use HasFactory, Sluggable;
-    protected $fillable = ['title', 'slug','image', 'category_id', 'description'];
+    protected $fillable = ['title', 'slug','author','image', 'category_id', 'description'];
 
     public function sluggable(): array
     {
