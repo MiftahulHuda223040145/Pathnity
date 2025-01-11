@@ -15,7 +15,7 @@ class VacanciesController extends Controller
     public function index()
     {
         
-        $vacancies = Vacancies::all();
+        $vacancys = Vacancies::all();
 
        
         return view('dashboard.vacancies.vacancies', compact('vacancies'));
@@ -28,7 +28,7 @@ class VacanciesController extends Controller
     {
         
         $categories = Category::all();
-        return view('dashboard.vacancies.create-vancancy');
+        return view('dashboard.vacancies.create-vancancy',compact('categories'));
     }
 
     /**
@@ -37,7 +37,7 @@ class VacanciesController extends Controller
     public function store(Request $request)
     {
         
-        $validated = $request->validate([
+        $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'type' =>'required',
             'category_id' => 'required|exists:categories,id',
@@ -48,7 +48,7 @@ class VacanciesController extends Controller
 
         
         if ($request->file('image')) {
-            $validated['image'] = $request->file('image')->store('vacancies', 'public');
+            $validatedData['image'] = $request->file('image')->store('vacancies', 'public');
         }
 
         $validatedData['description'] = strip_tags($request->description);
