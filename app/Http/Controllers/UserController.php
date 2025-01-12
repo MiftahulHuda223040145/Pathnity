@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $socialUser = session('social_user');
 
-        return view('register-complete', compact('socialUser'));
+        return view('register.register-complete', compact('socialUser'));
     }
 
     public function update(Request $request)

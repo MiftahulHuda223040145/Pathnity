@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
-            $table->string('image')->nullable();
+            $table->foreignId('category_id')->constrained('categories', 'id');
+            $table->foreignId('types_id')->constrained('types', 'id');
+            $table->integer('salary');
+            $table->integer('numberofworker');
+            $table->string('description');
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@ class AdminController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id); // Cari user berdasarkan ID
-        return view('dashboard.users.show', compact('user')); // Tampilkan halaman detail
+        return view('dashboard.users.detail-user', compact('user')); // Tampilkan halaman detail
     }
     public function edit($id)
     {

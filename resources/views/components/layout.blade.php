@@ -19,5 +19,6 @@
     <x-footer></x-footer>
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="{{ asset('js/fetchLocation.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </body>
 </html>

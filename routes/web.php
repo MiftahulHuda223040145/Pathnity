@@ -9,6 +9,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrganizerController;
+use App\Http\Controllers\VacanciesController;
 
 Route::get('/', function () {
     $jobs = [
@@ -202,17 +203,7 @@ Route::get('/change-password', function () {
 })->middleware('auth:web');
 Route::put('/change-password', [UserController::class, 'changePassword'])->middleware('auth:web');
 
-Route::get('/settingOrg', function () {
-    return view('settings.settingOrg');
-})->middleware('auth:organizer');
-Route::get('/edit-organizer', function () {
-    return view('settings.edit-organizer');
-})->middleware('auth:organizer');
-Route::put('/edit-organizer', [OrganizerController::class, 'updateOrganizer'])->name('organizer.update')->middleware('auth:organizer');
-Route::get('/change-password-org', function () {
-    return view('settings.change-password-org');
-})->middleware('auth:organizer');
-Route::put('/change-password-org', [OrganizerController::class, 'changePassword'])->middleware('auth:organizer');
+
 
 
 Route::get('/redirect/{provider}', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
@@ -254,23 +245,53 @@ Route::middleware(['admin'])->group(function () {
         return view('dashboard.vacancies.vacancies');
     });
 
-    Route::get('/dashboard/detail-vacancy', function () {
-        return view('dashboard.vacancies.detail-vacancy');
-    });
-
-    Route::get('/dashboard/detail-vacancy', function () {
-        return view('dashboard.vacancies.detail-vacancy');
-    });
+    Route::get('/dashboard/detail-vacancy',  [VacanciesController::class, 'show'])->name('vacancies.detail');
     
-    Route::get('/dashboard/create-vacancy');
+    Route::get('/dashboard/create-blog', [BlogController::class, 'create'])->name('dashboard.blog.create');
+    Route::post('/dashboard/create-blog', [Blogcontroller::class, 'store'])->name('create.store');
+    Route::get('/dashboard/blogs/{blog}/edit', [BlogController::class, 'edit'])->name('blogs.edit');
+    Route::put('/dashboard/blogs/{blog}', [BlogController::class, 'update'])->name('blogs.update');
+    Route::get('/dashboard/detail-blog/{blog}', [BlogController::class, 'show'])->name('blogs.detail');
+    Route::get('/dashboard/Blog/checkSlug', [BlogController::class, 'checkSlug'])->name('blogs.checkSlug');
+    Route::delete('/dashboard/blogs/{blog}', [BlogController::class, 'destroy'])->name('blogs.destroy');
 
-    // Route::get('/dashboard/create-blog', [BlogController::class, 'create'])->name('dashboard.blog.create');
-
-    Route::get('/dashboard/detail-blog', function () {
-        return view('dashboard.blog.detail-blog');
-    });
 
     Route::resource('/dashboard/blogs', BlogController::class);
 
     Route::get('/pdf-report', [OrganizerController::class, 'generatePdfReport'])->name('organizer.pdf-report');
 });
+
+Route::middleware(['auth:organizer'])->group(function () {
+    Route::get('/create-vacancy', [VacanciesController::class, 'create'])->name('vacancies.create');
+    Route::get('/settingOrg', function () {
+        return view('settings.settingOrg');
+    });
+    Route::get('/edit-organizer', function () {
+        return view('settings.edit-organizer');
+    });
+    Route::put('/edit-organizer', [OrganizerController::class, 'updateOrganizer'])->name('organizer.update');
+    Route::get('/change-password-org', function () {
+        return view('settings.change-password-org');
+    });
+    Route::put('/change-password-org', [OrganizerController::class, 'changePassword']);
+
+    Route::get('/dashorg', function () {
+        return view('dashorg.dashorg');
+    });
+    Route::get('/active-career', function () {
+        return view('dashorg.active-career');
+    });
+    Route::get('/see-aplicants', function () {
+        return view('dashorg.see-aplicants');
+    });
+    Route::get('/seemore-worker', function () {
+        return view('dashorg.seemore-worker');
+    });
+    Route::get('/seemore-active-vacancies', function () {
+        return view('dashorg.seemore-activevacancies');
+    });
+    Route::get('/seemore-waiting', function () {
+        return view('dashorg.seemore-waiting');
+    });
+});
+
