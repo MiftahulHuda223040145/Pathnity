@@ -24,6 +24,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('vacancies', function (Blueprint $table) {
+            $table->dropForeign(['types_id']); // Hapus foreign key
+        });
+
         Schema::dropIfExists('types');
     }
 };

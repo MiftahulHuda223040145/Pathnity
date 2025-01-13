@@ -24,6 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        // Hapus tabel vacancies terlebih dahulu (atau hapus foreign key-nya)
+        Schema::table('vacancies', function (Blueprint $table) {
+            $table->dropForeign(['category_id']); // Hapus foreign key
+        });
+
+        Schema::dropIfExists('categories'); // Hapus tabel categories
     }
 };

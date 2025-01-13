@@ -37,7 +37,7 @@ return new class extends Migration
 
         Schema::create('organizer_sessions', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignId('organizer_id')->nullable()->index();
+            $table->foreignId('organizer_id')->nullable()->index()->constrained('organizers')->onDelete('cascade'); // Foreign key
             $table->string('ip_address', 45)->nullable();
             $table->text('organizer_agent')->nullable();
             $table->longText('payload');
@@ -50,8 +50,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('organizers');
-        Schema::dropIfExists('password_reset_tokens');
-        Schema::dropIfExists('sessions');
+        Schema::dropIfExists('organizer_sessions'); 
+        Schema::dropIfExists('organizer_password_reset_tokens');
+        Schema::dropIfExists('organizers'); 
     }
 };

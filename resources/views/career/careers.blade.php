@@ -1,81 +1,97 @@
 <x-layout>
-    <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">My Career</h1>
-    <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
-        <div class="container mx-auto my-5">
-            <div class="grid grid-cols-4 gap-4">                
-                <div class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full items-center gap-4">
-                    <div class="place-items-center text-center">
-                        <img src="" alt="Company Logo" class="h-12 w-12 mb-14">
-                        <h3 class="text-lg font-semibold">Fullstack Developer</h3>
-                        <p class="text-gray-600">PT.Pertamina</p>
-                        <p class="text-gray-600">Jakarta, Indonesia</p>
-                        <span class="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-900 dark:text-gray-300">Type</span>
-                        <p class="text-gray-600">12.000.000</p>
-                    </div>
-                </div>
-            </div>
-
-            {{-- If Career is empty --}}
-            {{-- <div class="text-center place-items-center">
-                <h2 class="text-2xl font-bold mb-20">Find Job or Volunteer</h2>
-                <button href="/search" class="bg-orange-500 text-white py-2 px-6 rounded text-center">Find
-            </div> --}}
-        </div>
-        <div class="text-center">
-            <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 mt-5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 16 4-4-4-4m6 8 4-4-4-4"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-
-    {{-- For Organizer --}}
-    <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">Waiting</h1>
-    <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
-        <div class="container mx-auto my-5">
-            <div class="grid grid-cols-4 gap-4">                
-                <div class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full items-center gap-4">
-                    <div class="place-items-center">
-                        <img src="" alt="Company Logo" class="h-12 w-12 mb-14">
-                        <h3 class="text-lg font-semibold">Fullstack Developer</h3>
-                        <p class="text-gray-600">PT.Pertamina</p>
-                        <p class="text-gray-600">Jakarta, Indonesia</p>
-                        <p class="text-gray-600">12.000.000</p>
-                    </div>
+    @if (auth()->check())
+        <!-- My Career Section -->
+        <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">My Career</h1>
+        <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
+            <div class="container mx-auto my-5">
+                <div class="grid grid-cols-4 gap-4">
+                    @forelse ($myCareer as $career)
+                        <div
+                            class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full items-center gap-4">
+                            <div class="place-items-center text-center">
+                                {{-- <img src="{{ $career->organizer->avatar ? asset('storage/' . $career->organizer->avatar) : asset('default-logo.png') }}"
+                                    alt="Company Logo" class="h-12 w-12 mb-14"> --}}
+                                <h3 class="text-lg font-semibold">{{ $career->title }}</h3>
+                                <p class="text-gray-600">{{ $career->organizer->organization_name }}</p>
+                                <p class="text-gray-600">{{ $career->organizer->address }}</p>
+                                <span
+                                    class="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded">{{ $career->type->name }}</span>
+                                <p class="text-gray-600">Rp. {{ number_format($career->salary, 0, ',', '.') }}</p>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="text-center w-full">
+                            <h2 class="text-2xl font-bold mb-4">You don’t have any careers yet!</h2>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>
-        <div class="text-center">
-            <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 mt-5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 16 4-4-4-4m6 8 4-4-4-4"/>
-                </svg>
-            </button>
-        </div>
-    </div>
 
-    <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">History</h1>
-    <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
-        <div class="container mx-auto my-5">
-            <div class="grid grid-cols-4 gap-4">                
-                <div class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full items-center gap-4">
-                    <div class="place-items-center">
-                        <img src="" alt="Company Logo" class="h-12 w-12 mb-14">
-                        <h3 class="text-lg font-semibold">Fullstack Developer</h3>
-                        <p class="text-gray-600">PT.Pertamina</p>
-                        <p class="text-gray-600">Jakarta, Indonesia</p>
-                        <p class="text-gray-600">12.000.000</p>
-                    </div>
+
+        <!-- Waiting Section -->
+        <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">Pending</h1>
+        <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
+            <div class="container mx-auto my-5">
+                <div class="grid grid-cols-4 gap-4">
+                    @foreach ($waiting as $vacancy)
+                        <div
+                            class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full items-center gap-4">
+                            <div class="place-items-center text-center">
+                                {{-- <img src="{{ $vacancy->organizer->avatar ? asset('storage/' . $vacancy->organizer->avatar) : asset('default-logo.png') }}"
+                                    alt="Company Logo" class="h-12 w-12 mb-14"> --}}
+                                <h3 class="text-lg font-semibold">{{ $vacancy->title }}</h3>
+                                <p class="text-gray-600">{{ $vacancy->organizer->organization_name }}</p>
+                                <p class="text-gray-600">{{ $vacancy->organizer->address }}</p>
+                                <p class="text-gray-600">Rp. {{ number_format($vacancy->salary, 0, ',', '.') }}</p>
+                                @if ($vacancy->applications->isNotEmpty())
+                                    <!-- Rute menuju halaman detail dengan ID application -->
+                                    <a href="{{ route('career.detail', ['application' => $vacancy->applications->first()->id]) }}"
+                                        class="text-blue-500 hover:underline mt-2">
+                                        View Details
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-        <div class="text-center">
-            <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 mt-5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 16 4-4-4-4m6 8 4-4-4-4"/>
-                </svg>
-            </button>
+
+
+        <!-- History Section -->
+        <h1 class="text-4xl font-bold dark:text-white mt-24 px-12">History</h1>
+        <div class="bg-white rounded-lg shadow-2xl p-4 mt-5 h-auto mx-12">
+            <div class="container mx-auto my-5">
+                <div class="grid grid-cols-4 gap-4">
+                    @forelse ($history as $past)
+                        <div
+                            class="bg-white rounded-lg shadow-md p-5 border border-gray-300 h-70 w-full items-center gap-4">
+                            <div class="place-items-center text-center">
+                                {{-- <img src="{{ $past->organizer->avatar ? asset('storage/' . $past->organizer->avatar) : asset('default-logo.png') }}"
+                                    alt="Company Logo" class="h-12 w-12 mb-14"> --}}
+                                <h3 class="text-lg font-semibold">{{ $past->title }}</h3>
+                                <p class="text-gray-600">{{ $past->organizer->organization_name }}</p>
+                                <p class="text-gray-600">{{ $past->organizer->address }}</p>
+                                <p class="text-gray-600">Rp. {{ number_format($past->salary, 0, ',', '.') }}</p>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="text-center w-full">
+                            <h2 class="text-2xl font-bold mb-4">No career history available!</h2>
+                        </div>
+                    @endforelse
+                </div>
+            </div>
         </div>
-    </div>
+    @else
+        <!-- Not Logged In -->
+        <div class="flex items-center justify-center h-screen">
+            <div
+                class="bg-white rounded-lg shadow-md p-8 border border-gray-300 w-1/2 h-1/2 flex flex-col items-center justify-center">
+                <p class="text-xl font-semibold mb-4">You Must Login!</p>
+                <button class="bg-orange-500 text-white py-2 px-6 rounded"><a href="/login">Login</a></button>
+            </div>
+        </div>
+    @endif
 </x-layout>

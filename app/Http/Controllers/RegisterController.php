@@ -14,7 +14,7 @@ class RegisterController extends Controller
         $validatedData = $request->validate([
             'first_name' => 'required|max:255',
             'last_name' => 'nullable|string|max:255',
-            'gender' => 'required|in:male,female',
+            'gender' => 'required|in:Male,Female',
             'phone_number' => 'required|digits_between:10,15',
             'birth_date' => 'required|date|before:today',
             'province' => 'required|string',

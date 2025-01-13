@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Organizer;
+use App\Models\Vacancies;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -107,5 +108,21 @@ class AdminController extends Controller
         return response()->json([
             'organizers' => $organizers
         ]);
+    }
+
+    public function showVacancies()
+    {
+        // Mengambil semua data vacancies yang statusnya aktif
+        $vacancies = Vacancies::with(['category', 'type', 'organizer'])
+            ->get();
+
+        return view('dashboard.vacancies.vacancies', compact('vacancies'));
+    }
+    public function destroyVacancies($id)
+    {
+        $vacancy = Vacancies::findOrFail($id);
+        $vacancy->delete();
+
+        return redirect()->route('dashboard.vacancies')->with('success', 'Vacancy deleted successfully!');
     }
 }

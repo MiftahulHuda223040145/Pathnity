@@ -1,4 +1,4 @@
-<?php
+{{-- <?php
 $avatarPath = auth('web')->user()->avatar;
 $avatarUrl = $avatarPath && file_exists(public_path($avatarPath)) ? asset($avatarPath) : asset('/img/profile/avatar_default.png');
 ?>
@@ -97,5 +97,52 @@ $avatarUrl = $avatarPath && file_exists(public_path($avatarPath)) ? asset($avata
             </div>
         </div>
 
+    </div>
+</x-layout> --}}
+
+<?php
+$avatarUrl = $user->avatar ? (filter_var($user->avatar, FILTER_VALIDATE_URL) ? $user->avatar : asset($user->avatar)) : asset('/img/profile/avatar_default.png');
+?>
+<x-layout>
+    <div class="container mx-auto p-6 mt-12">
+        <div class="bg-white shadow-md rounded-md overflow-hidden">
+            <!-- Background Image -->
+            <div class="w-full h-60 bg-cover bg-center"
+                style="background-image: url('{{ asset('img/background/background.jpeg') }}');">
+            </div>
+            <!-- Profile Images -->
+            <div class="p-6 flex flex-col items-center">
+                <div
+                    class="w-24 h-24 rounded-full border-4 border-gray-200 bg-gray-200 flex items-center justify-center -mt-12">
+                    <img src="{{ $avatarUrl }}" alt="Profile Image" class="w-24 h-24 rounded-full object-cover">
+                </div>
+                <h2 class="text-center text-xl font-bold mt-4">
+                    {{ $user->first_name . ' ' . $user->last_name }}</h2>
+                <p class="text-center text-sm text-gray-500">{{ trim(explode(',', $user->address)[2] ?? '') }}</p>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="bg-white shadow-md rounded-md p-6 mt-6 relative">
+            <h2 class="text-xl font-bold mb-4">Experience</h2>
+            <div class="space-y-4">
+                <p class="text-gray-500">No experiences available for this user.</p>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="bg-white shadow-md rounded-md p-6 mt-6 relative">
+            <h2 class="text-xl font-bold mb-4">Skills</h2>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                <li>Sample Skill 1</li>
+                <li>Sample Skill 2</li>
+            </ul>
+        </div>
+
+        <!-- Education Section -->
+        <div class="bg-white shadow-md rounded-md p-6 mt-6 relative">
+            <h2 class="text-xl font-bold mb-4">Education</h2>
+            <p class="text-gray-500">No education information provided.</p>
+        </div>
     </div>
 </x-layout>

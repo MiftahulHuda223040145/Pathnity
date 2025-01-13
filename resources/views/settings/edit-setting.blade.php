@@ -1,7 +1,18 @@
 <?php
 $avatarPath = auth('web')->user()->avatar;
-$avatarUrl = $avatarPath && file_exists(public_path($avatarPath)) ? asset($avatarPath) : asset('/img/profile/avatar_default.png');
+
+// Check if avatar is a full URL (in case of Google Auth or external avatar source)
+if (filter_var($avatarPath, FILTER_VALIDATE_URL)) {
+    $avatarUrl = $avatarPath; // Use the URL directly
+} elseif ($avatarPath && file_exists(public_path('storage/' . $avatarPath))) {
+    // If avatar exists in storage and is stored locally
+    $avatarUrl = asset('storage/' . $avatarPath);
+} else {
+    // Default avatar if no avatar is found
+    $avatarUrl = asset('/img/profile/avatar_default.png');
+}
 ?>
+
 <x-layout>
     <div class="flex container mx-auto mt-20">
         <div class="w-3/4 bg-white p-8 shadow-md ml-auto mr-auto">
@@ -112,5 +123,7 @@ $avatarUrl = $avatarPath && file_exists(public_path($avatarPath)) ? asset($avata
             </form>
         </div>
     </div>
+
+    <script src="{{ asset('js/fetchLocation.js') }}"></script>
 
 </x-layout>

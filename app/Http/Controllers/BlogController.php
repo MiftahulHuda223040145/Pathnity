@@ -23,6 +23,25 @@ class BlogController extends Controller
         $blogs = Blog::paginate(20);
         return view('dashboard.blog.blogs', compact('blogs'));
     }
+    public function indexMainPage(Request $request)
+    {
+        // Build query for fetching blogs
+        $query = Blog::with(['category']);
+
+        // If there's a search term, filter blogs by title or category name
+        if ($request->filled('search')) {
+            $query->where(function ($q) use ($request) {
+                $q->where('title', 'like', '%' . $request->search . '%')
+                    ->orWhereHas('category', function ($query) use ($request) {
+                        $query->where('name', 'like', '%' . $request->search . '%');
+                    });
+            });
+        }
+
+        $blogs = $query->paginate(10);
+
+        return view('blog.blogs', compact('blogs'));
+    }
 
 
     public function create()
@@ -61,6 +80,13 @@ class BlogController extends Controller
         return view('dashboard.blog.detail-blog', [
             'blog' => $blogById
         ]);
+    }
+    public function showDetails($id)
+    {
+        // Fetch the blog by ID
+        $blog = Blog::with('category')->findOrFail($id);
+
+        return view('blog.blog', compact('blog'));
     }
 
     // Menampilkan form untuk mengedit blog
@@ -119,7 +145,7 @@ class BlogController extends Controller
 
     public function checkSlug(Request $request)
     {
-        $slug = SlugService::createSlug(Blog::class,'slug',$request->title);
+        $slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
 }

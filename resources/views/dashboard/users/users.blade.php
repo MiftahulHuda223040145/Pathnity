@@ -52,8 +52,8 @@
                                     <td class="px-6 py-4">{{ $user->auth_provider }}</td>
                                     <td class="px-6 py-4">{{ $user->role == 0 ? 'Admin' : 'User' }}</td>
                                     <td class="px-6 py-4">
-                                        <a href="{{ route('users.show', $user->id) }}"
-                                            class="font-medium text-blue-600 hover:underline">Detail</a>
+                                        {{-- <a href="{{ route('users.show', $user->id) }}"
+                                            class="font-medium text-blue-600 hover:underline">Detail</a> --}}
                                         <form action="{{ route('users.destroy', $user->id) }}" method="POST"
                                             class="inline">
                                             @csrf

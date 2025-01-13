@@ -12,9 +12,10 @@ class TypeSeeder extends Seeder
     public function run(): void
     {
         $types = [
-            ['name' => 'FullTime'],
-            ['name' => 'HalfTime'],
-            ['name' => 'Online']
+            ['name' => 'FullTime', 'slug' => 'fulltime'],
+            ['name' => 'HalfTime', 'slug' => 'halftime'],
+            ['name' => 'Online', 'slug' => 'online'],
+            ['name' => 'Volunteer', 'slug' => 'volunteer'],
         ];
 
         foreach ($types as $type) {

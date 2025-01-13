@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string('title');
             $table->foreignId('category_id')->constrained('categories', 'id');
             $table->foreignId('types_id')->constrained('types', 'id');
-            $table->integer('salary');
+            $table->integer('salary')->nullable();
             $table->integer('numberofworker');
             $table->string('description');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
@@ -28,6 +29,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vacancies');
+        // Hapus foreign key relasi types_id dan category_id
+        Schema::table('vacancies', function (Blueprint $table) {
+            $table->dropForeign(['types_id']);
+            $table->dropForeign(['category_id']);
+        });
+
+        Schema::dropIfExists('vacancies'); // Hapus tabel vacancies
     }
 };

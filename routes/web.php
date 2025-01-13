@@ -1,125 +1,129 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\SocialiteController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\LocationController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CareerController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\DashOrgController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrganizerController;
+use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\VacanciesController;
 
-Route::get('/', function () {
-    $jobs = [
-        [
-            'title' => 'Fullstack Developer',
-            'company_name' => 'PT. Pertahanan Jaya',
-            'location' => 'Jakarta, Indonesia',
-            'status' => 'Online',
-            'salary' => 20000000,
-            'logo' => 'img/defender.png',
-        ],
-        [
-            'title' => 'Pramuniaga/SPG',
-            'company_name' => 'PT. Alihkan',
-            'location' => 'Jakarta, Indonesia',
-            'status' => 'Online',
-            'salary' => 2000000,
-            'logo' => 'img/compass.png',
-        ],
-        [
-            'title' => 'Product Developer',
-            'company_name' => 'PT. Pertama',
-            'location' => 'Jakarta, Indonesia',
-            'status' => 'Online',
-            'salary' => 2000000,
-            'logo' => 'img/gas.png',
-        ],
-    ];
-
-    $volunteers = [
-        [
-            'title' => 'Volunteering Pertanian dan Kehutanan',
-            'organization' => 'Kementerian Pertanian',
-            'location' => 'Jakarta, Indonesia',
-            'date' => '02 Februari 2024',
-            'logo' => 'img/tea.png',
-        ],
-        [
-            'title' => 'Pembersihan Kali Ciliwung',
-            'organization' => 'Pandawara Group',
-            'location' => 'Jakarta, Indonesia',
-            'date' => '02 Februari 2024',
-            'logo' => 'img/clean.png',
-        ],
-        [
-            'title' => 'Humas Kuali Merah Putih',
-            'organization' => 'Bobon Group',
-            'location' => 'Jakarta, Indonesia',
-            'date' => '03 Februari 2024',
-            'logo' => 'img/cooking.png',
-        ],
-    ];
-
-    $logos = [
-        'cooking.png',
-        'defender.png',
-        'compass.png',
-        'gas.png',
-        'tea.png',
-        'clean.png',
-        'apple.png',
-        'brand-image.png',
-        'netflix.png',
-        'cooking.png',
-        'defender.png',
-        'compass.png',
-        'gas.png',
-        'tea.png',
-        'clean.png',
-        'apple.png',
-        'brand-image.png',
-        'netflix.png',
-        'cooking.png',
-        'defender.png',
-        'compass.png',
-        'gas.png',
-        'tea.png',
-        'clean.png',
-        'apple.png',
-        'brand-image.png',
-        'netflix.png',
-        'gas.png',
-        'tea.png',
-    ];
-    
-
-    return view('home', compact('jobs', 'volunteers', 'logos'));
-});
+Route::get('/', [HomeController::class, 'index']);
 
 
-Route::get('/search', function () {
-    return view('search.search');
-});
+// Route::get('/', function () {
+//     $jobs = [
+//         [
+//             'title' => 'Fullstack Developer',
+//             'company_name' => 'PT. Pertahanan Jaya',
+//             'location' => 'Jakarta, Indonesia',
+//             'status' => 'Online',
+//             'salary' => 20000000,
+//             'logo' => 'img/defender.png',
+//         ],
+//         [
+//             'title' => 'Pramuniaga/SPG',
+//             'company_name' => 'PT. Alihkan',
+//             'location' => 'Jakarta, Indonesia',
+//             'status' => 'Online',
+//             'salary' => 2000000,
+//             'logo' => 'img/compass.png',
+//         ],
+//         [
+//             'title' => 'Product Developer',
+//             'company_name' => 'PT. Pertama',
+//             'location' => 'Jakarta, Indonesia',
+//             'status' => 'Online',
+//             'salary' => 2000000,
+//             'logo' => 'img/gas.png',
+//         ],
+//     ];
 
-Route::get('/search/vacancies', function () {
-    return view('search.search-vacancies');
-});
+//     $volunteers = [
+//         [
+//             'title' => 'Volunteering Pertanian dan Kehutanan',
+//             'organization' => 'Kementerian Pertanian',
+//             'location' => 'Jakarta, Indonesia',
+//             'date' => '02 Februari 2024',
+//             'logo' => 'img/tea.png',
+//         ],
+//         [
+//             'title' => 'Pembersihan Kali Ciliwung',
+//             'organization' => 'Pandawara Group',
+//             'location' => 'Jakarta, Indonesia',
+//             'date' => '02 Februari 2024',
+//             'logo' => 'img/clean.png',
+//         ],
+//         [
+//             'title' => 'Humas Kuali Merah Putih',
+//             'organization' => 'Bobon Group',
+//             'location' => 'Jakarta, Indonesia',
+//             'date' => '03 Februari 2024',
+//             'logo' => 'img/cooking.png',
+//         ],
+//     ];
+
+//     $logos = [
+//         'cooking.png',
+//         'defender.png',
+//         'compass.png',
+//         'gas.png',
+//         'tea.png',
+//         'clean.png',
+//         'apple.png',
+//         'brand-image.png',
+//         'netflix.png',
+//         'cooking.png',
+//         'defender.png',
+//         'compass.png',
+//         'gas.png',
+//         'tea.png',
+//         'clean.png',
+//         'apple.png',
+//         'brand-image.png',
+//         'netflix.png',
+//         'cooking.png',
+//         'defender.png',
+//         'compass.png',
+//         'gas.png',
+//         'tea.png',
+//         'clean.png',
+//         'apple.png',
+//         'brand-image.png',
+//         'netflix.png',
+//         'gas.png',
+//         'tea.png',
+//     ];
+
+
+//     return view('home', compact('jobs', 'volunteers', 'logos'));
+// });
+
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/search/vacancies/{id}', [SearchController::class, 'vacancyDetails'])->name('search.vacancyDetails');
+Route::post('/vacancies/{id}/apply', [VacanciesController::class, 'apply'])->middleware('auth:web')->name('vacancies.apply');
+
+
+Route::get('/search/vacancies', [SearchController::class, 'index'])->name('index');
+Route::get('/search/vacanciesSearch', [SearchController::class, 'searchVacancies'])->name('search.vacanciesSearch');
 
 Route::get('/login', function () {
     return view('login.login');
 })->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/blogs', function () {
-    return view('blog.blogs');
-});
+Route::get('/blogs', [BlogController::class, 'indexMainPage'])->name('blogs.indexMainPage');
+Route::get('/blog/{blog}', [BlogController::class, 'showDetails'])->name('blog.show');
 
-Route::get('/blog', function () {
-    return view('blog.blog');
-});
 
 Route::get('/notifications', function () {
     return view('notification.notifications');
@@ -142,9 +146,15 @@ Route::get('/term-condition', function () {
     return view('term.term-condition');
 });
 
-Route::get('/careers', function () {
-    return view('career.careers');
-});
+Route::get('/careers', [CareerController::class, 'index'])->name('career.index')->middleware(['auth:web']);
+Route::get('/career/{application}', [CareerController::class, 'show'])->name('career.detail');
+Route::put('/applicant/{application}/status/{status}', [ApplicantController::class, 'updateStatus'])->name('applicant.updateStatus');
+Route::post('/applicants/{id}/interview', [ApplicantController::class, 'setInterview'])->name('applicants.interview');
+Route::post('/applicants/{id}/accept', [ApplicantController::class, 'setAccept'])->name('applicants.accept');
+Route::get('/dashorg/workers', [DashOrgController::class, 'workers'])->name('dashorg.workers');
+Route::put('/dashorg/workers/{id}/fire', [DashOrgController::class, 'fireWorker'])->name('dashorg.fireWorker');
+Route::get('/search-vacancies', [VacanciesController::class, 'searchVacancies'])->name('search.vacancies');
+
 
 Route::get('/careers-2', function () {
     return view('career.careers-2');
@@ -213,9 +223,8 @@ Route::get('/api/locations/provinces', [LocationController::class, 'getProvinces
 Route::get('/api/locations/cities', [LocationController::class, 'getCities']);
 Route::get('/api/locations/districts', [LocationController::class, 'getDistricts']);
 
-Route::get('/profile', function () {
-    return view('profile.profile');
-})->middleware('auth');
+Route::get('/profile/{id}', [UserController::class, 'ProfileUser'])->name('profile.show');
+
 
 Route::get('/seemore-experience', function () {
     return view('seemore-experience');
@@ -241,12 +250,14 @@ Route::middleware(['admin'])->group(function () {
     Route::delete('dashboard/organizer/{id}', [AdminController::class, 'destroyOrganizer'])->name('organizer.destroy');
     Route::get('organizer/search', [AdminController::class, 'searchOrganizer'])->name('organizer.search');
 
-    Route::get('/dashboard/vacancies', function () {
-        return view('dashboard.vacancies.vacancies');
-    });
+    Route::get('/dashboard/vacancies', [AdminController::class, 'showVacancies'])->name('dashboard.vacancies');
+    Route::delete('/vacancies/{id}', [VacanciesController::class, 'destroy'])->name('vacancies.destroy');
+    Route::get('/dashboard/detail-vacancy/{id}', [VacanciesController::class, 'show'])->name('dashboard.detail-vacancy');
+
+
 
     Route::get('/dashboard/detail-vacancy',  [VacanciesController::class, 'show'])->name('vacancies.detail');
-    
+
     Route::get('/dashboard/create-blog', [BlogController::class, 'create'])->name('dashboard.blog.create');
     Route::post('/dashboard/create-blog', [Blogcontroller::class, 'store'])->name('create.store');
     Route::get('/dashboard/blogs/{blog}/edit', [BlogController::class, 'edit'])->name('blogs.edit');
@@ -263,6 +274,18 @@ Route::middleware(['admin'])->group(function () {
 
 Route::middleware(['auth:organizer'])->group(function () {
     Route::get('/create-vacancy', [VacanciesController::class, 'create'])->name('vacancies.create');
+    Route::post('/vacancies', [VacanciesController::class, 'store'])->name('vacancies.store');
+    Route::post('/vacancies/{id}/toggle-status', [VacanciesController::class, 'toggleStatus'])->name('vacancies.toggleStatus');
+    Route::get('/dashorg/see-applicants/{vacancy}', [DashOrgController::class, 'seeApplicants'])->name('dashorg.seeApplicants');
+    Route::get('/applicants/profile/{id}', [ApplicantController::class, 'showProfile'])->name('applicants.profile');
+
+
+
+
+    Route::get('/dashorg/vacancies', [DashOrgController::class, 'showVacancies'])->name('dashorg.vacancies');
+
+    Route::delete('/vacancies/{id}', [DashOrgController::class, 'destroyVacancy'])->name('vacancies.destroy');
+
     Route::get('/settingOrg', function () {
         return view('settings.settingOrg');
     });
@@ -275,9 +298,7 @@ Route::middleware(['auth:organizer'])->group(function () {
     });
     Route::put('/change-password-org', [OrganizerController::class, 'changePassword']);
 
-    Route::get('/dashorg', function () {
-        return view('dashorg.dashorg');
-    });
+    Route::get('/dashorg', [DashOrgController::class, 'index'])->name('dashorg.index');
     Route::get('/active-career', function () {
         return view('dashorg.active-career');
     });
@@ -294,4 +315,3 @@ Route::middleware(['auth:organizer'])->group(function () {
         return view('dashorg.seemore-waiting');
     });
 });
-

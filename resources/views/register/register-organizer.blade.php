@@ -291,4 +291,6 @@
             </form>
         </div>
     </div>
+
+    <script src="{{ asset('js/fetchLocation.js') }}"></script>
 </x-layout>

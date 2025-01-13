@@ -17,14 +17,14 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
                         <input type="text" id="slug" name="slug"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            {{-- readonly --}} required /> 
+                            {{-- readonly --}} required />
                     </div>
                     <div class="mb-5">
                         <label for="author"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Author</label>
                         <input type="text" id="author" name="author"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required /> 
+                            required />
                     </div>
                     <div class="mb-5">
                         <label for="categories"
@@ -42,8 +42,8 @@
                         <input
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             aria-describedby="user_avatar_help" id="user_avatar" type="file" name="image">
-                        <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A profile
-                            picture is useful to confirm your are logged into your account</div>
+                        {{-- <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A profile
+                            picture is useful to confirm your are logged into your account</div> --}}
                     </div>
                     <input id="description" type="hidden" name="description" value="">
                     <span>Description</span>

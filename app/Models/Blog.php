@@ -10,22 +10,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Blog extends Model
 {
-    // use HasFactory,Sluggable;
+    use HasFactory, Sluggable;
     protected $fillable = ['title', 'author', 'slug', 'image', 'category_id', 'description'];
 
     protected $with = ['category'];
 
     public function category(): BelongsTo
-    { 
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'id';
     }
 
 
-    public function sluggable(): array{
+    public function sluggable(): array
+    {
         return [
             'slug' => [
                 'source' => 'title'

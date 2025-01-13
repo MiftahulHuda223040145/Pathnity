@@ -1,6 +1,16 @@
 <?php
-$user = auth('web')->user();
-$avatarUrl = filter_var($user->avatar, FILTER_VALIDATE_URL) ? $user->avatar : (file_exists(public_path($user->avatar)) ? asset($user->avatar) : asset('/img/profile/avatar_default.png'));
+$avatarPath = auth('web')->user()->avatar; // This gets the avatar path from the database
+
+// If the avatar is a URL (from Google Auth or other external sources)
+if (filter_var($avatarPath, FILTER_VALIDATE_URL)) {
+    $avatarUrl = $avatarPath; // Use the URL directly
+} elseif ($avatarPath && file_exists(storage_path('app/private/public/avatar/' . $avatarPath))) {
+    // If avatar exists in the specific storage path
+    $avatarUrl = asset('storage/private/public/avatar/' . $avatarPath); // Use asset() to generate the URL
+} else {
+    // Default avatar if no avatar is found
+    $avatarUrl = asset('/img/profile/avatar_default.png');
+}
 ?>
 <x-layout>
     @if (session()->has('success'))
