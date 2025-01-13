@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $socialUser = session('social_user');
 
-        return view('register-complete', compact('socialUser'));
+        return view('register.register-complete', compact('socialUser'));
     }
 
     public function update(Request $request)
@@ -92,10 +92,11 @@ class UserController extends Controller
             $profilePicture = $request->file('profilePicture');
             $fileName = 'profile_' . Auth::id() . '.' . $profilePicture->getClientOriginalExtension();
 
-            // Pindahkan gambar ke folder public/img/profile
-            $profilePicture->move(public_path('img/profile'), $fileName);
+            // Store the file in 'public/blogs' directory
+            $profilePicture->storeAs('public/avatar', $fileName);
 
-            $user->avatar = 'img/profile/' . $fileName;
+            // Save the file path in the database
+            $user->avatar = 'avatar/' . $fileName;
         }
 
 
@@ -125,8 +126,25 @@ class UserController extends Controller
         $regencyName = $this->locationService->getLocationById('regencies', $regencyId);
         $provinceName = $this->locationService->getLocationById('provinces', $provinceId);
 
+
+
         return view('setting', compact('districtName', 'regencyName', 'provinceName'));
     }
+
+    public function ProfileUser($id)
+    {
+        // Retrieve user by ID
+        $user = User::findOrFail($id);
+
+        // Check if user exists
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+
+        // Pass the user to the profile view
+        return view('profile.profile', compact('user'));
+    }
+
 
     public function changePassword(Request $request)
     {

@@ -23,8 +23,7 @@
     <div class="p-4 sm:ml-64">
         <div class="p-4 bg-white rounded-lg mt-14">
             <div class="relative overflow-x-auto sm:rounded-lg">
-                <a href="/pdf-report"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <a href="/pdf-report" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Download PDF Report
                 </a>
                 <!-- Search Input -->
@@ -80,14 +79,10 @@
                                     {{ $organizer->email }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="{{ route('organizer.show', $organizer->id) }}" class="font-medium">
+                                    {{-- <a href="{{ route('organizer.show', $organizer->id) }}" class="font-medium">
                                         <span
                                             class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Detail</span>
-                                    </a>
-                                    <a href="{{ route('organizer.edit', $organizer->id) }}" class="font-medium">
-                                        <span
-                                            class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Edit</span>
-                                    </a>
+                                    </a> --}}
                                     <form action="{{ route('organizer.destroy', $organizer->id) }}" method="POST"
                                         class="inline">
                                         @csrf

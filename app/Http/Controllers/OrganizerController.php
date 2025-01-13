@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Organizer;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -92,7 +91,9 @@ class OrganizerController extends Controller
 
     public function generatePdfReport()
     {
+        
         $organizers = Organizer::all();
+        // return view('dashboard.organizer.Pdf', compact('organizers'));
         $pdf = Pdf::loadView('dashboard.organizer.pdf', compact('organizers'));
         $pdf->setPaper('A4', 'landscape');
         return $pdf->download('Organizer_Report.pdf');

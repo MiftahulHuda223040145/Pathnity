@@ -12,9 +12,20 @@
             @auth('web')
                 <?php
                 $user = auth('web')->user();
-                $avatarUrl = filter_var($user->avatar, FILTER_VALIDATE_URL) ? $user->avatar : (file_exists(public_path($user->avatar)) ? asset($user->avatar) : asset('/img/profile/avatar_default.png'));
+                $avatarPath = auth('web')->user()->avatar; // This gets the avatar path from the database
+                
+                // If the avatar is a URL (from Google Auth or other external sources)
+                if (filter_var($avatarPath, FILTER_VALIDATE_URL)) {
+                    $avatarUrl = $avatarPath; // Use the URL directly
+                } elseif ($avatarPath && file_exists(storage_path('app/private/public/avatar/' . $avatarPath))) {
+                    // If avatar exists in the specific storage path
+                    $avatarUrl = asset('storage/private/public/avatar/' . $avatarPath); // Use asset() to generate the URL
+                } else {
+                    // Default avatar if no avatar is found
+                    $avatarUrl = asset('/img/profile/avatar_default.png');
+                }
+                
                 ?>
-
 
                 <button type="button"
                     class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -34,9 +45,13 @@
                             class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ auth('web')->user()->email }}</span>
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
-                        <li><a href="/profile"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
+                        <li>
+                            <a href="{{ route('profile.show', auth('web')->id()) }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                Profile
+                            </a>
                         </li>
+
                         @if ($user->role == 0)
                             <li><a href="/dashboard"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
@@ -83,14 +98,11 @@
                             class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ auth('organizer')->user()->email }}</span>
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
-                        <li><a href="#"
+                        <li><a href="/dashorg"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
                         </li>
                         <li><a href="/settingOrg"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                        </li>
-                        <li><a href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
                         </li>
                         <li>
                             <form action="/logout" method="POST"
@@ -134,12 +146,12 @@
                         class="block py-2 px-3 text-white text-sm font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#FFA629] md:p-0 dark:text-white md:dark:hover:text-[#FFA629] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ml-9 {{ request()->is('search') ? 'text-[#FFA629]' : 'text-white hover:text-[#FFA629]' }}">Search</a>
                 </li>
                 <li>
-                    <a href="/career"
+                    <a href="/careers"
                         class="block py-2 px-3 text-white text-sm font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#FFA629] md:p-0 dark:text-white md:dark:hover:text-[#FFA629] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ml-9 {{ request()->is('career') ? 'text-[#FFA629]' : 'text-white hover:text-[#FFA629]' }}">Career</a>
                 </li>
                 <li>
-                    <a href="/blog"
-                        class="block py-2 px-3 text-white text-sm font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#FFA629] md:p-0 dark:text-white md:dark:hover:text-[#FFA629] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ml-9 {{ request()->is('blog') ? 'text-[#FFA629]' : 'text-white hover:text-[#FFA629]' }}">Blog</a>
+                    <a href="/blogs"
+                        class="block py-2 px-3 text-white text-sm font-medium rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#FFA629] md:p-0 dark:text-white md:dark:hover:text-[#FFA629] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ml-9 {{ request()->is('blogs') ? 'text-[#FFA629]' : 'text-white hover:text-[#FFA629]' }}">Blog</a>
                 </li>
             </ul>
         </div>
